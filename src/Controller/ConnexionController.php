@@ -9,9 +9,9 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class UserController extends AbstractController
+class ConnexionController extends AbstractController
 {
-    #[Route('/inscription', name: 'app_user')]
+    #[Route('/connexion', name: 'app_user')]
     public function index(): Response
     {
         $form = $this->createFormBuilder()
@@ -20,7 +20,7 @@ class UserController extends AbstractController
         ->add('submit', SubmitType::class)
         ->getForm()
         ;
-        return $this->render('inscription.html.twig', [
+        return $this->render('connexion.html.twig', [
             'form' => $form->createView(),
         ]);
     }

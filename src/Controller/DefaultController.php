@@ -13,19 +13,11 @@ class DefaultController extends AbstractController {
     public function hello(){
         return $this->render("hello.html.twig");
     }
-    #[Route("/connexion", name: "connexion")]
-    public function connexion(){
-        return $this->render("connexion.html.twig");
-    }
+   
     #[Route("/home", name: "home")]
     public function home(){
         return $this->render("home.html.twig");
     }
-    #[Route("/inscription", name:"inscription")]
-    public function inscription(){
-        return $this->render("inscription.html.twig");
-
-      
-    }
+    
 
 }
