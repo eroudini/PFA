@@ -1,0 +1,18 @@
+$theme-colors: (
+  "cvColor": #001f3f,
+  "primary": rgb(6, 235, 124),
+  "myGray": #DBD3CD,
+
+);
+
+// customize some Bootstrap variables
+
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap/scss/bootstrap";
+
+@import url("https://fonts.googleapis.com/css2?family=Handlee&display=swap");
+
+// Custom typography class
+.custom-typography {
+  font-family: "Handlee", cursive;
+}

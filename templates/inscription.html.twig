@@ -1,0 +1,19 @@
+{% block form %}
+
+<style>
+
+</style>
+
+
+
+    <h1>La page d'inscription</h1>
+
+    <div>
+    {{form_start(form) }}
+        {{form_row(form.email)}}
+        {{form_row(form.password)}}
+        {{form_row(form.submit)}}
+
+    {{form_end(form)}}
+    </div>
+{% endblock %}
