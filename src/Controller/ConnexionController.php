@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ConnexionController extends AbstractController
 {
-    #[Route('/connexion', name: 'app_user')]
+    #[Route('/connexion', name: 'connexion')]
     public function index(): Response
     {
         $form = $this->createFormBuilder()

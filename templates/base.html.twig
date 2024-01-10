@@ -39,18 +39,18 @@
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
-					<div class="collapse navbar-collapse" id="navbarColor02">
+					<div class="collapse navbar-collapse m-2" id="navbarColor02">
 						<ul class="navbar-nav me-auto">
 							<li class="nav-item">
-								<a class="nav-link active" href="#">Home
+								<a class="nav-link active" href="/home">Home
 									<span class="visually-hidden">(current)</span>
 								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Nos vehicules</a>
+								<a class="nav-link" href="/vehicules">Nos vehicules</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Tarifs</a>
+								<a class="nav-link" href="/tarifs">Tarifs</a>
 							</li>
                             <li class="nav-item">
 								<a class="nav-link" href="/inscription">S'inscrire</a>
@@ -72,6 +72,15 @@
 
         {% block form %}
         {% endblock %}
+
+		{% block detail %}
+        {% endblock %}
+
+		{% block edit %}
+        {% endblock %}
+
+
+
 
 
 
