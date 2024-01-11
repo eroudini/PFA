@@ -14,7 +14,7 @@ class DefaultController extends AbstractController {
         return $this->render("hello.html.twig");
     }
    
-    #[Route("/home", name: "home")]
+    #[Route("/", name: "home")]
     public function home(){
         return $this->render("home.html.twig");
     }
