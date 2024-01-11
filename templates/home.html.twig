@@ -1,11 +1,209 @@
 {% extends "base.html.twig" %}
 
-{% block header %}
-    <div class="bg">
-    <h1>Location de voiture à Lyon</h1>
+
+{% block sectionHome %}
+     <!--Home section-->
+    <section class="home" id="home">
+        <div class="home-text">
+            <h1>Retrouver <br> notre selection de <span>voitures</span></h1>
+            <p>Parcourez notre vaste inventaire de véhicules de qualité, <br> allant des modèles élégantsaux performances sportives.<br></p>
+            <!--home Button-->
+            <a href="/vehicules" class="btn">Découvrir</a>
+        </div>
+    </section> 
+
+
+     <!--cars section-->
+    <section class="cars" id="cars">
+        <div class="heading">
+            <span>La collection</span>
+            <h2>Nos avons tout type de voitures</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur <br>adipisicing elit. Laudantium id beatae culpa voluptate.</p>
+        </div>
+        <!--Cars container-->
+        <div class="cars-container container">
+            <!--Box 1-->
+            <div class="box">
+                <img src="img/car1.jpg" alt="">
+                <h2>Porche</h2>
+            </div>
+            <!--Box 2-->
+            <div class="box">
+                <img src="img/car2.jpg" alt="">
+                <h2>Audi</h2>
+            </div>
+
+               <!--Box 7-->
+        <div class="box">
+            <img src="img/car5.jpg" alt="">
+            <h2>Audi</h2>
+        </div>
+
+            <!--Box 3-->
+            <div class="box">
+                <img src="img/car3.jpg" alt="">
+                <h2>Audi</h2>
+            </div>
+
+            <!--Box 4-->
+            <div class="box">
+                <img src="img/car4.jpg" alt="">
+                <h2>Audi</h2>
+            </div>
+
+            <!--Box 5-->
+            <div class="box">
+                <img src="img/car7.jpeg" alt="">
+                <h2>Audi</h2>
+            </div>
+
+            <!--Box 6-->
+            <div class="box">
+                <img src="img/car6.jpg" alt="">
+                <h2>Ford</h2>
+            </div>
+
+            <!--Box 7-->
+            <div class="box">
+                <img src="img/car5.jpg" alt="">
+                <h2>Audi</h2>
+            </div>
+
+            <!--Box 8-->
+            <div class="box">
+                <img src="img/car8.jpg" alt="">
+                <h2>Chevrolet</h2>
+            </div>
+        </div>
+
+    </section>
+
+    <!--About-->
+    <section>
+        <section class="about container" id="about">
+            <div class="about-img">
+                <img src="img/about.png" alt="">
+            </div>
+            <div class="about-text">
+                <span>A propos de nous</span>
+                <h2>Les meilleurs offres du marché</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, fugit hic molestias numquam voluptate, dolores sit dolorem quisquam maiores.</p>
+                <!--About Button-->
+                <a href="#" class="btn">En savoir plus</a>
+            </div>
+        </section>
+    </section>
+
+    <!--parts section-->
+    <section class="parts" id="parts">
+        <div class="heading">
+            <span>Nos produits sont de qualité supérieure, à des prix abordables.</span>
+            <h2>Retrouvez les pièces détachées dont vous avez besoin.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, fugit hic molestias numquam voluptate, dolores sit dolorem quisquam maiores.</p>
+        </div>
+        <!--parts container-->
+        <div class="parts-container container">
+            <!--Box 1-->
+
+            <div class="box">
+                <img src="img/part1.png" alt="">
+                <h3>Pièces de rechange auto</h3>
+                <span>€130.99</span>
+                <a href="#" class="btn">Acheter</a>
+                <a href="#" class="details">En savoir plus</a>
+            </div>
+
+               <!--Box 2-->
+
+               <div class="box">
+                <img src="img/part2.png" alt="">
+                <h3>Pièces de rechange auto</h3>
+                <span>€130.99</span>
+                <i class='bx bxs-star'>(6 Reviews)</i>
+                <a href="#" class="btn">Acheter</a>
+                <a href="#" class="details">En savoir plus</a>
+            </div>
+
+               <!--Box 3-->
+
+               <div class="box">
+                <img src="img/part3.png" alt="">
+                <h3>Pièces de rechange auto</h3>
+                <span>€130.99</span>
+                <i class='bx bxs-star'>(6 Reviews)</i>
+                <a href="#" class="btn">Acheter</a>
+                <a href="#" class="details">En savoir plus</a>
+            </div>
+
+               <!--Box 4-->
+
+               <div class="box">
+                <img src="img/part4.png" alt="">
+                <h3>Pièces de rechange auto</h3>
+                <span>€130.99</span>
+                <i class='bx bxs-star'>(6 Reviews)</i>
+                <a href="#" class="btn">Acheter</a>
+                <a href="#" class="details">En savoir plus</a>
+            </div>
+
+               <!--Box 5-->
+
+               <div class="box">
+                <img src="img/part5.png" alt="">
+                <h3>Pièces de rechange auto</h3>
+                <span>€130.99</span>
+                <i class='bx bxs-star'>(6 Reviews)</i>
+                <a href="#" class="btn">Acheter</a>
+                <a href="#" class="details">En savoir plus</a>
+            </div>
+
+               <!--Box 6-->
+
+               <div class="box">
+                <img src="img/part6.png" alt="">
+                <h3>Pièces de rechange auto</h3>
+                <span>€130.99</span>
+                <i class='bx bxs-star'>(6 Reviews)</i>
+                <a href="#" class="btn">Acheter</a>
+                <a href="#" class="details">En savoir plus</a>
+            </div>
+        </div>
+    </section>
+
+    <!--footer-->
+    <section class="footer">
+        <div class="footer-container container">
+            <div class="footer-box">
+                <a href="#" class="logo">Car<span>Sales</span></a>
+                <div class="social">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-youtube'></i></a>
+                </div>
+            </div>
+            <div class="footer-box">
+                <h3>Page</h3>
+                <a href="#">Accueil</a>
+                <a href="#">Nos voitures</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Legal</h3>
+                <a href="#">Privacy</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Contact</h3>
+               <p>Lyon</p>
+            </div>
+        </div>
+    </section>
+
+    <!--Copyright-->
+    <div class="copyright">
+        <p>&#169; HorizonCar</p>
     </div>
-
-
 
 
 {% endblock %}

@@ -1,6 +1,8 @@
 import './styles/global.css'
 require('bootstrap/dist/css/bootstrap.min.css');
+import './main.js'
 import './bootstrap.js';
+import './styles/style.css'
 
 /*
  * Welcome to your app's main JavaScript file!
