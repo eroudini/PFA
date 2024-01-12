@@ -20,6 +20,7 @@
     <div class="row row-cols-2 ">
         <div class="col">
             <div class="">
+			
                 <div class="card" style="width: 28rem;">
 				{# DEBUT BOUCLE FOR AFIN DE RECUPERER LES DONNEES DANS LA BDD #}
 				{# {% for NosVehicules in NosVehicule %} #}
@@ -56,13 +57,13 @@
 					<div class="card" style="width: 28rem;">
 						<img src="{{ vehicule.images }}" class="card-img-top" alt="...">
 						<div class="card-body">
-							<h5 class="card-title">BMW x6</h5>
-							<h6 class="card-subtitle mb-2 text-muted">23,889€</h6>
+							<h5 class="card-title">{{vehicule.marques}}</h5>
+							<h6 class="card-subtitle mb-2 text-muted">{{vehicule.prix}}</h6>
 							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 							<ul class="list-group list-group-flush">
-								<li class="list-group-item">Mise en circulation:</li>
-								<li class="list-group-item">Kilométrage:</li>
-								<li class="list-group-item">Carburant:</li>
+								<li class="list-group-item">Mise en circulation: {{vehicule.circulation}}</li>
+								<li class="list-group-item">Kilométrage: {{vehicule.Kilometrage}}</li>
+								<li class="list-group-item">Carburant: {{vehicule.Carburant}}</li>
 							</ul>
 							<a href="#" class="btn mr-2">
 								<i class="fa-solid fa-eye"></i> Voir
