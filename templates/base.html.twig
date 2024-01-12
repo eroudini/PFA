@@ -32,7 +32,7 @@
     </div>
     <nav class="navbar navbar-expand-lg bg-white sticky-top navbar-light p-3 shadow-sm">
       <div class="container">
-        <a class="navbar-brand" href="{{ path('home') }}"><i class="fa-solid fa-car"></i> <strong>Horizon<span>Car</span> </strong></a>
+        <a class="navbar-brand logo" href="{{ path('home') }}"><i class="fa-solid fa-car"></i> <strong>Horizon<span>Car</span> </strong></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -70,96 +70,92 @@
               <a class="nav-link mx-2 text-uppercase" href="#"><i class="fa-solid fa-cart-shopping me-1"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-2 text-uppercase" href="{{ path('connexion') }}"><i class="fa-solid fa-circle-user me-1"></i></a>
+              <a class="nav-link mx-2 text-uppercase" href="{{ path('app_login') }}"><i class="fa-solid fa-circle-user me-1"></i></a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-
-
-
-	    <!--Nav Container-->
-        {# <div class="nav container">
-            <!--Menu Icon-->
-            <i class='bx bx-menu' id="menu-icon"></i>
-            <!--Logo-->
-            <a href="/home" class="logo">Horizon<span>Car</span></a>
-            <!--Navbar List-->
-            <ul class="navbar">
-                <li> <a href="/home" class="active">Accueil</a></li>
-                <li> <a href="/vehicules">Nos voitures</a></li>
-                <li> <a href="/apropos">A propos</a></li>
-                <li> <a href="/blog">Blog</a></li>
-				<li id="inscription"> <a href="/inscription">S'inscrire</a></li>
-				<li id="connexion"> <a href="/connexion">Se connecter</a></li>
-
-
-            </ul>
-
-
-            <!--search Icon-->
-            <i class='bx bx-search' id="search-icon"></i>
-            <!--search Box-->
-            <div class="search-box container">
-                <input type="search" name="" id="" placeholder="Search here...">
-            </div> 
-        </div> #}
 		{% endblock %}
 
-	  {# ANCIENNE NAVBAR BOOSTRAP #}
+    {# FIN NAVBAR #}
 
-	  
-			{# <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-				<div class="container-fluid">
-					<a class="navbar-brand" href="/home">SportiCar</a>
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse m-2" id="navbarColor02">
-						<ul class="navbar-nav me-auto">
-
-							<li class="nav-item">
-								<a class="nav-link" href="/vehicules">Nos vehicules</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="/tarifs">Tarifs</a>
-							</li>
-                            <li class="nav-item">
-								<a class="nav-link" href="/inscription">S'inscrire</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Contact</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav> #}
-		
-		
-		{% block sectionHome %}
-  		
-		{% endblock %}
+      {% block body %}
+      {% endblock %}
+          
+      {% block sectionHome %}
+            
+      {% endblock %}
 
 		
 
-
-
-		{% block body %}
-        {% endblock %}
+		
 	
-		{% block header %}
-        {% endblock %}
+		  {% block header %}
+      {% endblock %}
 
-        {% block form %}
-        {% endblock %}
+      {% block form %}
+      {% endblock %}
 
-		{% block detail %}
-        {% endblock %}
+		  {% block detail %}
+      {% endblock %}
 
-		{% block edit %}
-        {% endblock %}
+		  {% block edit %}
+      {% endblock %}
+
+      
+
+      {# FOOTER #}
+
+      {% block footer %}
+
+	    <!--footer-->
+	      <section class="footer">
+		<div class="footer-container container">
+			<div class="footer-box">
+				<a href="#" class="logo"> <i class="fa-solid fa-car"></i> Horizon<span>Car</span>
+				</a>
+				<div class="social">
+					<a href="#">
+						<i class="fa-brands fa-facebook-f"></i>
+					</a>
+					<a href="#">
+						<i class="fa-brands fa-x-twitter"></i>
+					</a>
+					<a href="#">
+						<i class="fa-brands fa-instagram"></i>
+					</a>
+					<a href="#">
+						<i class="fa-brands fa-youtube"></i>
+					</a>
+				</div>
+			</div>
+			<div class="footer-box">
+				<h3>Page</h3>
+				<a href="{{ path('home') }}">Accueil</a>
+				<a href="{{ path('vehicules') }}">Nos voitures</a>
+			</div>
+
+			<div class="footer-box">
+				<h3>Legal</h3>
+				<a href="#">Privacy</a>
+			</div>
+
+			<div class="footer-box">
+				<h3>Contact</h3>
+                <p>04 54 08 09 92</p>
+                <p>contact@horizoncar.fr</p>
+				<p>Lyon</p>
+			</div>
+		</div>
+	      </section>
+
+	<!--Copyright-->
+	    <div class="copyright">
+		    <p>&#169; HorizonCar</p>
+	    </div>
+      {% endblock %}
 
 
 
