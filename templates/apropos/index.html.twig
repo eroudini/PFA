@@ -9,6 +9,12 @@
 </style>
 
 <div class="example-wrapper">
+
+{# Ce code permet l'accées a une page uniqement si l'user est connecter, donc je l'utiliserais pour le pannier mais je peux eventuellement le mettre sur un element tel qu'une balise #}
+    {% if is_granted('IS_AUTHENTIFICATED_FULLY') %}
+
+       {% endif %} 
+
     <h1>Hello {{ controller_name }}! ✅</h1>
 
     This friendly message is coming from:
@@ -16,5 +22,9 @@
         <li>Your controller at <code><a href="{{ 'C:/Users/STE-CM04-SG09-Admin/Documents/DWWM/Symfony/Project-FA/src/Controller/AproposController.php'|file_link(0) }}">src/Controller/AproposController.php</a></code></li>
         <li>Your template at <code><a href="{{ 'C:/Users/STE-CM04-SG09-Admin/Documents/DWWM/Symfony/Project-FA/templates/apropos/index.html.twig'|file_link(0) }}">templates/apropos/index.html.twig</a></code></li>
     </ul>
+
+
 </div>
+
+
 {% endblock %}
