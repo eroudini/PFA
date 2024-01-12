@@ -1,30 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AproposController!{% endblock %}
+{% block title %}A propos de nous
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
+    <section class="text-center">	 
+		<h1>À Propos de Nous - HorizonCar</h1>
+		<p>Bienvenue chez HorizonCar – Votre Partenaire Automobile de Confiance
+			
+			Chez HorizonCar, notre engagement envers l'excellence et le service à la clientèle exceptionnel définit notre identité. <br> Nous sommes fiers de représenter les marques
+			 les plus renommées de l'industrie automobile, offrant à nos clients une expérience d'achat inégalée.</p>
+    </section>
 
-{# Ce code permet l'accées a une page uniqement si l'user est connecter, donc je l'utiliserais pour le pannier mais je peux eventuellement le mettre sur un element tel qu'une balise #}
-    {% if is_granted('IS_AUTHENTIFICATED_FULLY') %}
+	<section class="text-center">
+		<h2>Notre Histoire</h2>
+		<p>Fondé en 2023, HorizonCar a émergé comme un acteur clé dans le monde automobile <br> Notre parcours a été marqué par un dévouement constant envers la 
+		satisfaction de nos clients et le maintien des normes les plus élevées de qualité et d'intégrité.</p>
+	</section>
 
-       {% endif %} 
+	<section class="text-center">
+		<h2>Notre Mission</h2>
+		<p>Notre mission est simple : offrir à nos clients une expérience automobile sans pareille, en fournissant des véhicules de qualité supérieure, un service exceptionnel et une transparence totale.<br>
+         Nous aspirons à établir des relations durables fondées sur la confiance, l'honnêteté et le respect mutuel.</p>
+	</section>
 
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<section class="text-center">
+		<h2>Nos Valeurs</h2>
+		<ul>
+			<li>
+				<strong>Intégrité</strong>: Nous agissons avec honnêteté et transparence à chaque étape de votre parcours avec nous.</li>
+			<li>
+				<strong>Engagement envers l'Excellence</strong>:  Nous nous efforçons constamment de dépasser les attentes, offrant des produits et services de la plus haute qualité.</li>
+			<li>
+				<strong>Service Client Exceptionnel</strong>: Nos clients sont au cœur de tout ce que nous faisons. Nous sommes là pour vous avant, pendant et après votre achat</li>
+		</ul>
+	</section>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/STE-CM04-SG09-Admin/Documents/DWWM/Symfony/Project-FA/src/Controller/AproposController.php'|file_link(0) }}">src/Controller/AproposController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/STE-CM04-SG09-Admin/Documents/DWWM/Symfony/Project-FA/templates/apropos/index.html.twig'|file_link(0) }}">templates/apropos/index.html.twig</a></code></li>
-    </ul>
+	<section class="text-center">
+		<h2>Notre Équipe</h2>
+		<p>HorizonCar est composé d'une équipe dévouée d'experts automobiles passionnés par leur métier.<br> Nos conseillers de vente, techniciens et professionnels du service sont là pour vous guider à chaque étape,
+         veillant à ce que votre expérience soit mémorable et sans souci.</p>
 
 
-</div>
-
-
+		
+	
 {% endblock %}
