@@ -6,27 +6,23 @@
 {% block body %}
 
 
-	<section class="">
-
-
 		<div class="heading2">
 			<h2>Plongez dans notre vaste sélection de véhicules !</h2>
 			<p>HorizonCar, commandez et financez votre voiture entièrement en ligne et faites-vous livrer à domicile ou dans l'une de nos concessions.</p>
 		</div>
 
 		{# row-cols-lg-5 g-2 g-lg-3 #}
-
-		<div class="container">
+ 
+		<div class="container py-3">
 			<div class="row row-cols-2 ">
 				<div class="col">
-					<div class="">
+					<div class="col-md-4 col-lg">
 						{% for vehicule in vehicules %}
 							<div class="card" style="width: 28rem;">
 								<img src="{{ vehicule.images }}" class="card-img-top" alt="...">
 								<div class="card-body">
 									<h5 class="card-title">{{vehicule.marques}}</h5>
 									<h6 class="card-subtitle mb-2 text-muted">{{vehicule.prix}}</h6>
-									<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 									<ul class="list-group list-group-flush">
 										<li class="list-group-item">Mise en circulation:
 											{{vehicule.circulation}}</li>
@@ -49,6 +45,5 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	
+		 </div>  
 {% endblock %}
