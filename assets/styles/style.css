@@ -1,4 +1,4 @@
-<style>
+
 /*Google Fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -571,9 +571,20 @@ a {
     .centerOnMobile {
       text-align:center
     }
+   
+  }
+
+
+
+.card{
+    display: inline-block;     
+    margin-left: 1.25rem;    
+    align-items: center;
+    margin-top: 1.25rem;   
+    
   }
 
 
 
 
-</style>
+

@@ -7,7 +7,6 @@
 
 	{# LOGIN FORM #}
 
-	 {# <section class="vh-100" style="background-color: #9A616D;">  #}
 		 <div class="container py-3 h-100"> 
 			<div class="row d-flex justify-content-center align-items-center h-100">
 				<div class="col col-xl-10">
@@ -19,8 +18,8 @@
 							<div class="col-md-6 col-lg-7 d-flex align-items-center">
 								<div class="card-body p-4 p-lg-5 text-black">
 
-									<form
-										method="post">
+									<form method="post">
+										
 
 										{# Si y a une erreur #}
 										{% if error %}
@@ -68,6 +67,6 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	
 
 {% endblock %}

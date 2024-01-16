@@ -1,4 +1,91 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+
+{% block form %}
+    {# {{ form_widget(form) }}  #}
+
+ <div class="container py-3 h-100"> 
+			<div class="row d-flex justify-content-center align-items-center h-100">
+				<div class="col col-xl-10">
+					<div class="card" style="border-radius: 3rem;">
+						<div class="row g-0">
+							{# <div class="col-md-6 col-lg-5 d-none d-md-block">
+								<img src="img/login.jpg" alt="signup image" class="img-fluid" style="border-radius: 1rem 0 0 1rem;"/>
+							</div> #}
+							<div class="col-md-6 col-lg-7 d-flex align-items-center">
+								<div class="card-body p-4 p-lg-5 text-black">
+
+									<form method="post">
+										
+
+										{# Si y a une erreur #}
+										
+										{# Si l'utilisateur est connecté #}
+										
+
+										<div class="d-flex align-items-center mb-3 pb-1">
+											<span class="fa-solid fa-car">
+												HorizonCar</span>
+										</div>
+
+										<h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 0px;">Nous sommes heureux de vous accueillir 🎉</h5>
+
+										<h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
+                                       
+                                         
+                                        {# INPUNT #}
+
+                                        {# ICI JE RAJOUTERAIS NAME #}
+
+                                        {# <label for="inputName">Name</label> #}
+
+                                        {{form_start(form)}}
+
+										<label for="inputMail">Mail</label>
+										{# <input type="text" value="" name="mail" id="inputMail" class="form-control" autocomplete="username" required autofocus> #}
+                                        {{form_widget(form.mail, {
+                                         'attr': {
+                                            'class': 'form-control'
+                                                }
+                                        })}}
+                                        <label for="inputPassword">Password</label>
+
+                                        {{form_widget(form.password, {
+                                        'attr': {
+                                            'class': 'form-control'
+                                        }
+                                        })}}
+										{# <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required> #}
+                                        
+                                        <br>
+
+                                        <p>
+                                            En cliquant sur s'inscrire, vous acceptez les <a href="{{ path('app_login') }}">CGU</a>. Pour plus d'informations sur la manière dont nous traitons vos données personnelles,
+                                            veuillez consulter notre <a href="{{ path('app_login') }}">Politique vie privée</a>
+                                        </p> 
+										 
+										<button class="btn">{{ button_label|default('S\'inscrire') }}</button>
+
+                                        {{form_end(form)}}
+										
+										<p class="mb-5 pb-lg-2" style="color: #393f81;">Vous possédez déjà un compte ? 
+											<a href="{{ path('app_login') }}" style="color: #393f81;">Connexion</a>
+										</p>
+										<a href="#!" class="small text-muted">Terms of use.</a>
+										<a href="#!" class="small text-muted">Privacy policy</a>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+    {# <button class="btn">{{ button_label|default('Save') }}</button> #}
+
+    {# {{ form_end(form) }}  #}
+
+
+{% endblock %}
+

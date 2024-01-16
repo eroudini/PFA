@@ -1,9 +1,12 @@
 {% extends 'base.html.twig' %}
 
+
+
 {% block title %}Nos vehicules
 {% endblock %}
 
 {% block body %}
+
 
 
 		<div class="heading2">
@@ -11,25 +14,29 @@
 			<p>HorizonCar, commandez et financez votre voiture entièrement en ligne et faites-vous livrer à domicile ou dans l'une de nos concessions.</p>
 		</div>
 
+		{# FILTRE DE RECHERCHE #}
+
 		{# row-cols-lg-5 g-2 g-lg-3 #}
- 
-		<div class="container py-3">
+
+		{# <div class="container py-3">
 			<div class="row row-cols-2 ">
 				<div class="col">
-					<div class="col-md-4 col-lg">
+					<div class="col-md-4 col-lg">  #}
+
+		<div class="">
 						{% for vehicule in vehicules %}
-							<div class="card" style="width: 28rem;">
+							<div class="card" style="width: 30rem;">
 								<img src="{{ vehicule.images }}" class="card-img-top" alt="...">
 								<div class="card-body">
-									<h5 class="card-title">{{vehicule.marques}}</h5>
-									<h6 class="card-subtitle mb-2 text-muted">{{vehicule.prix}}</h6>
+									  <h5 class="card-title">{{vehicule.nom}}</h5> 
+									  <h6 class="card-subtitle mb-2 text-muted">{{vehicule.prix}}</h6> 
 									<ul class="list-group list-group-flush">
 										<li class="list-group-item">Mise en circulation:
-											{{vehicule.circulation}}</li>
+											{{vehicule.circulation}}</li> 
 										<li class="list-group-item">Kilométrage:
 											{{vehicule.Kilometrage}}</li>
-										<li class="list-group-item">Carburant:
-											{{vehicule.Carburant}}</li>
+										 <li class="list-group-item">Carburant:
+											{{vehicule.Carburant}}</li>  
 									</ul>
 									<a href="#" class="btn mr-2">
 										<i class="fa-solid fa-eye"></i>
@@ -42,8 +49,14 @@
 								</div>
 							</div>
 						{% endfor %}
-					</div>
+
+
+			</div>
+
+					 {# </div>
 				</div>
 			</div>
-		 </div>  
+		 </div>     #}
+
+	 
 {% endblock %}
