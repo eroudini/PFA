@@ -1,4 +1,45 @@
+
+{% block contact %}
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+
+     {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>  
+
+
+
+
+{# 
+    <label for="inputNom">Nom</label>
+        {{form_widget(form.nom, {
+            'attr': {
+            'class': 'form-control'
+             }
+        })}}    
+
+	<label for="inputMail">Mail</label>
+        {{form_widget(form.mail, {
+            'attr': {
+            'class': 'form-control'
+             }
+        })}}
+
+    <label for="inputObjet">Objet</label>
+        {{form_widget(form.objet, {
+            'attr': {
+            'class': 'form-control'
+             }
+        })}}
+    <label for="inputMessage">Message</label>
+
+    {{form_widget(form.message, {
+            'attr': {
+            'class': 'form-control'
+            }
+    })}}
+                                        								 
+	<button class="btn">{{ button_label|default('Envoyez') }}</button> #}
+
+
 {{ form_end(form) }}
+{% endblock %}
