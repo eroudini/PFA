@@ -39,6 +39,14 @@
 
                                         {{form_start(form)}}
 
+									{#   VOIR AVEC ASSOUMANI POURQUOI CECI ME RENVOI UNE ERREUR PAREILLE POUR LA PAGE CONTACT
+										<label for="inputName">Nom</label>
+                                        {{form_widget(form.nom, {
+                                         'attr': {
+                                            'class': 'form-control'
+                                                }
+                                        })}} #}
+
 										<label for="inputMail">Mail</label>
                                         {{form_widget(form.mail, {
                                          'attr': {

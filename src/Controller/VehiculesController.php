@@ -21,12 +21,9 @@ class VehiculesController extends AbstractController
         // retour du rendu dans le twig
         return $this->render('vehicules.html.twig', [
             'vehicules' => $vehicules,
-            
-                 
+                             
         ]);
         
     }
-
-    
 
 }

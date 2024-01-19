@@ -16,6 +16,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
+    private ?string $nom = null;
+
+    #[ORM\Column(length: 180, unique: true)]
     private ?string $mail = null;
 
     #[ORM\Column]
@@ -32,6 +35,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->id;
     }
 
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+
+    public function setNom(string $nom): static
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+   
     public function getMail(): ?string
     {
         return $this->mail;
