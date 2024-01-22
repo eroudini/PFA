@@ -302,17 +302,17 @@ max-width: 120px;
 }
 
 
-.parts-container .box .details{
+.parts-container .box .panier{
 display: flex;
 align-items: center;
 position: absolute;
 bottom: 1.8rem;
 right: 1rem;
 font-size: 1rem;
-color: var(--text-color);
+color: #020102;
 }
 
-.parts-container .box .details:hover{
+.parts-container .box .panier:hover{
 color: var(--main-color);
 text-decoration: underline;
 }

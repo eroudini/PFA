@@ -7,7 +7,7 @@
     <section class="home" id="home">
 		<div class="jumbotron pt-4 m-5" id="home-text"> <h1 class="display-4">Bienvenue chez HorizonCar</h1>
 		<p class="lead">Découvrez le summum du luxe automobile avec notre sélection exclusive de véhicules.  <br> Chez HorizonCar, nous célébrons l'élégance et le raffinement. <br>
-		 Chaque voiture que nous proposons incarne le luxe moderne, <br> alliant technologie de pointe, design sophistiqué et performances exceptionnelles.</p>
+		 Chaque voiture que nous proposons incarne le luxe moderne, <br> alliant technologie de pointe, design sophistiqué et performances.</p>
 		<hr class="my-4">
 		<a class="btn btn-danger btn-lg m-5" href="/vehicules" role="button">Découvrir</a>
 	    </div>
@@ -81,8 +81,7 @@
 <section class="parts" id="parts">
 		<div class="heading">
 			<span>Nos produits sont de qualité supérieure, à des prix abordables.</span>
-			<h2>Retrouvez les pièces détachées dont vous avez besoin.</h2>
-			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, fugit hic molestias numquam voluptate, dolores sit dolorem quisquam maiores.</p>
+			<h2>Retrouvez les accesoires dont vous avez besoin.</h2>
 		</div>
 	
 		<div class="parts-container container">
@@ -94,11 +93,15 @@
 				<span>{{produit.prix}}</span>
                 <br>
 				<a href="#" class="btn">Acheter</a>
-				<a href="{{ path('app_panier', {id: produit.id}) }}" class="details"><i class="fa-solid fa-cart-arrow-down"></i></a> 
+				 {# <button></button> #}
+				<a href="{{ path('add', {id: produit.id}) }}" class="panier"><i class="fa-solid fa-cart-arrow-down"></i></a> 
+				
 
 			</div>
 		{% endfor %}
 		</div>  
 	</section> 
 
+	<script src="panier.js"></script>
+{# {{ path('app_panier') }} #}
 {% endblock %}

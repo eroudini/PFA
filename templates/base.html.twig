@@ -7,7 +7,7 @@
 			{% endblock %}
 		</title>
 
-		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22></text></svg>">
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
 
@@ -67,7 +67,7 @@
           </ul>
           <ul class="navbar-nav ms-auto ">
             <li class="nav-item">
-              <a class="nav-link mx-2 text-uppercase" href="{{ path('app_panier')}}"><i class="fa-solid fa-cart-shopping me-1"></i></a>
+              <a class="nav-link mx-2 text-uppercase" href="{{ path('app_panier')}}"><i class="fa-solid fa-cart-shopping me-1">{{app.session.get('panier') | length}}</i></a>
             </li>
             <li class="nav-item">
               <a class="nav-link mx-2 text-uppercase" href="{{ path('app_login') }}"><i class="fa-solid fa-circle-user me-1"></i></a>
