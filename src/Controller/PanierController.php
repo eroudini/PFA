@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-
 use App\Repository\ProduitsRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,26 +24,30 @@ class PanierController extends AbstractController
 
         // foreach($panier as $Id => $quantite){
         //     $produit = $produitsRepository->find($Id);
-        //     $dataPanier[] = [
-        //         "produit" => $produit,
-        //         "quantite" => $quantite
-        //     ];
+
+        //     if($produit){
+        //         $dataPanier[] = [
+        //             "produit" => $produit,
+        //             "quantite" => $quantite
+        //         ];
+
+        //     }
+            
         //     $total += $produit->getPrix() * $quantite;
         // }
+
+
 
         return $this->render('panier/index.html.twig', 
             [
                 "produits" => $panier,
+            
             ]
         );
 
-        // return $this->render('panier/index.html.twig', [
-        //     'items' => $dataPanier,
-        // ]);
 
-    }   
+    } 
 
- 
     #[Route('/add/{id}', name: 'add')]
     public function add(ProduitsRepository $produitsRepository, Request $request, $id)
     {
@@ -51,11 +55,13 @@ class PanierController extends AbstractController
         $panier = [];
         if ($request->getSession()->has('panier')){
             $panier = $request->getSession()->get('panier');
+            // $panier->setQuantity(1);
         }
         $panier[] = $product;
         $panier = $request->getSession()->set('panier', $panier);
         
         // Ensuite redirection page panier
+
         return $this->redirectToRoute('home');
 
     }
@@ -63,23 +69,18 @@ class PanierController extends AbstractController
      // function remove product
 
     #[Route('/remove/{id}', name: 'remove')]    
-    public function remove(ProduitsRepository $produitsRepository, Request $request, $id)
+    public function remove(ProduitsRepository $produitsRepository, Request $request, $id): Response
     {
-          // je recup le produit a partir de l'id
-          $product = $produitsRepository->find((int)$id);
-          // je recup le panier actuel
-          $panier = $request->getSession()->get('panier');
-          $id = $product->getId();
-        // je verifie si le produit existe dans le panier et si oui je le supprime avec unset
-          if(!empty($panier[$id])){
-            unset($panier[$id]);
+        $product = $produitsRepository->find((int)$id);
+        if($this->isCsrfTokenValid('delete'.$product->getId(), $request->query->get('csrf_token'))) {
+            $panier = $request->getSession()->get('panier');
+            $result = array_filter($panier, function($item) use ($product){
+                return $item->getId() !== $product->getId();
+            });
+            $request->getSession()->set('panier', $result);
         }
 
-          // On sauvegarde dans la session
-          $panier = $request->getSession()->set('panier', $panier);
-  
           return $this->redirectToRoute("app_panier");
       }
   
-
 }
