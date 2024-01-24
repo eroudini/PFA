@@ -70,42 +70,43 @@
               <a class="nav-link mx-2 text-uppercase" href="{{ path('app_panier')}}"><i class="fa-solid fa-cart-shopping me-1">{{app.session.get('panier') | length}}</i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-2 text-uppercase" href="{{ path('app_login') }}"><i class="fa-solid fa-circle-user me-1"></i></a>
+
+		{# Href conditionelle si l'utilisateur est connecter le chemin est différent #}
+			{% if app.user %}
+              <a class="nav-link mx-2 text-uppercase" 			  
+			  href="{{ path('app_user_show', {id: app.user.id}) }}">
+			  <i class="fa-solid fa-circle-user me-1"></i></a>
+			{% else %}
+				<a class="nav-link mx-2 text-uppercase" 			  
+			  href="{{ path('app_login') }}">
+			  <i class="fa-solid fa-circle-user me-1"></i></a>
+			{% endif %}
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-		{% endblock %}
+	{% endblock %}
 
     {# FIN NAVBAR #}
 
-      {% block body %}
-      {% endblock %}
+    {% block body %}
+    {% endblock %}
           
-      {% block sectionHome %}
+    {% block sectionHome %}
             
-      {% endblock %}
+    {% endblock %}
 
-		
+	{% block header %}
+    {% endblock %}
 
-		
+    {% block form %}
+    {% endblock %}
+
+	{% block detail %}
+    {% endblock %}
 	
-		  {% block header %}
-      {% endblock %}
-
-      {% block form %}
-      {% endblock %}
-
-		  {% block detail %}
-      {% endblock %}
-
-		  {% block edit %}
-      {% endblock %}
-
-      
-
       {# FOOTER #}
 
       {% block footer %}

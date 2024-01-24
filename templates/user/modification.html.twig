@@ -1,0 +1,40 @@
+
+{% block body %}
+<div class="container bootstrap snippets bootdey p-5">
+                    <div class="tab-pane" id="tab2">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="basic">
+                                        <form method="post" action="{{ path('app_user_edit', {'id': user.id}) }}">
+                                            <div class="form-group">
+                                                <label for="inputname" class="col-lg-2 control-label">Nom</label>
+                                                <div class="col-lg-10">
+                                                    <input type="name" class="form-control" id="inputname" placeholder="{{user.nom}}">
+                                                </div>
+                                            </div>              
+                                            <div class="form-group">
+                                                <label for="inputemail" class="col-lg-2 control-label">Mail</label>
+                                                <div class="col-lg-10">
+                                                    <input type="email" class="form-control" id="inputemail" placeholder="{{user.mail}}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputpassword" class="col-lg-2 control-label">Password</label>
+                                                <div class="col-lg-10">
+                                                    <input type="password" class="form-control" id="inputpassword" placeholder="{{user.password}}">
+                                                </div>
+                                            </div>
+                                            <br>                           
+                                             <button class="btn">Appliquer</button>
+                                            <br>
+                                                                                
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+</div>              
+{% endblock %}

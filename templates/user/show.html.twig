@@ -1,34 +1,94 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}Mon profile{% endblock %}
 
 {% block body %}
-    <h1>User</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
-            </tr>
-            <tr>
-                <th>Mail</th>
-                <td>{{ user.mail }}</td>
-            </tr>
-            <tr>
-                <th>Roles</th>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ user.password }}</td>
-            </tr>
-        </tbody>
-    </table>
+   
+<div class="container bootstrap snippets bootdey p-5">
+ <div class="mb-5"><a href="{{ path('app_logout') }}">Deconnexion</a></div>
+<div class="panel-body inf-content p-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="table-responsive">
+            <table class="table">
+                <tbody>
+                    <tr>    
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-user  text-primary"></span>    
+                                Nom                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            {{user.nom}}     
+                        </td>
+                    </tr>
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-cloud text-primary"></span>  
+                                Mail                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            {{user.mail}}   
+                        </td>
+                    </tr>
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-bookmark text-primary"></span> 
+                                Mot de passe                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            ***********
+                        </td>
+                    </tr>
 
-    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-eye-open text-primary"></span> 
+                                Adresse                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            127 rue marie paradis, 69006 Lyon
+                        </td>
+                    </tr>
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-calendar text-primary"></span>
+                                created                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            20 jul 20014
+                        </td>
+                    </tr>
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-calendar text-primary"></span>
+                                Modified                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                             20 jul 20014 20:00:00
+                        </td>
+                    </tr>                                    
+                </tbody>
+            </table>
+            </div>
+            <a href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
+        </div>
+    </div>
+</div>
 
-    {{ include('user/_delete_form.html.twig') }}
+
+</div>                                        
 {% endblock %}
