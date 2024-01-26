@@ -4,52 +4,57 @@
 
 	{# SECTION HEADER  #}
 
-    <section class="home" id="home">
-		<div class="jumbotron pt-4 m-5" id="home-text"> <h1 class="display-4">Bienvenue chez HorizonCar</h1>
-		<p class="lead">Découvrez le summum du luxe automobile avec notre sélection exclusive de véhicules.  <br> Chez HorizonCar, nous célébrons l'élégance et le raffinement. <br>
-		 Chaque voiture que nous proposons incarne le luxe moderne, <br> alliant technologie de pointe, design sophistiqué et performances.</p>
-		<hr class="my-4">
-		<a class="btn btn-danger btn-lg m-5" href="/vehicules" role="button">Découvrir</a>
-	    </div>
+	<section class="home" id="home">
+		<div class="jumbotron pt-4 m-5" id="home-text">
+			<h1 class="display-4">Bienvenue chez HorizonCar</h1>
+			<p class="lead">Découvrez le summum du luxe automobile avec notre sélection exclusive de véhicules.
+				<br>
+				Chez HorizonCar, nous célébrons l'élégance et le raffinement.
+				<br>
+				Chaque voiture que nous proposons incarne le luxe moderne,
+				<br>
+				alliant technologie de pointe, design sophistiqué et performances.</p>
+			<hr class="my-4">
+			<a class="btn btn-danger btn-lg m-5" href="/vehicules" role="button">Découvrir</a>
+		</div>
 
-    </section>
+	</section>
 
 	<!--cars section-->
 	<section class="cars" id="cars">
 		<div class="heading">
 			<span>La collection</span>
 			<h2>Découvrez nos marques</h2>
-			
+
 		</div>
 		<!--Cars container-->
-		<div
-			class="cars-container container">
+		<div class="cars-container container">
 
 			<div class="box">
 				<a href=""><img src="img/mercedes.jpg" alt=""></a>
 				<h2>Mercedes</h2>
 			</div>
-			
+
 			<div class="box">
 				<a href=""><img src="img/porsche.jpg" alt=""></a>
 				<h2>Porche</h2>
 			</div>
-						
+
 			<div class="box">
 				<a href=""><img src="img/car3.jpg" alt=""></a>
 				<h2>Audi</h2>
 			</div>
-		
+
 			<div class="box">
 				<a href=""><img src="img/bmw.jpg" alt=""></a>
 				<h2>Bmw</h2>
 			</div>
-		
+
 			<div class="box">
 				<a href=""><img src="img/ford.jpg" alt=""></a>
 				<h2>Ford</h2>
 			</div>
-		
+
 			<div class="box">
 				<a href=""><img src="img/chevrolet.jpg" alt=""></a>
 				<h2>Chevrolet</h2>
@@ -75,37 +80,47 @@
 		</section>
 	</section>
 
-            {# LA PARTIE PIECE DETACHE #}
+	{# LA PARTIE PIECE DETACHE #}
 
-	 <!--parts section-->
-<section class="parts" id="parts">
+	<!--parts section-->
+	<section class="parts" id="parts">
 		<div class="heading">
 			<span>Nos produits sont de qualité supérieure, à des prix abordables.</span>
 			<h2>Retrouvez les accesoires dont vous avez besoin.</h2>
 		</div>
-	
-		<div class="parts-container container">
+
+		<div
+			class="parts-container container">
 			<!--Box 1-->
-		{% for produit in produits %}
-			<div class="box">
-				<img src="{{produit.images}}" alt="">
-				<h3>{{produit.nomproduit}}</h3>
-				<span>{{produit.prix}} €</span>
-                <br>
-				<a href="{{ path('app_product', {id: produit.id}) }}" class="btn">Voir</a>
-				 {# <button></button> #}
-				 {% set isProduitExist=[] %}
-				 {% if app.session.get('panier')  %}
-				 	{% set isProduitExist = app.session.get('panier')|filter(item => item.id == produit.id) %}
-				 {% endif %}
-				 {% if isProduitExist|length == 0  %}
-					<a href="{{ path('add', {id: produit.id}) }}" class="panier"><i class="fa-solid fa-cart-arrow-down"></i></a> 				
-				 {% endif %}
-			</div>
-		{% endfor %}
-		</div>  
-	</section> 
+			{% for produit in produits %}
+				<div class="box">
+					<img src="{{produit.images}}" alt="">
+					<h3>{{produit.nomproduit}}</h3>
+					<span>{{produit.prix}}
+						€</span>
+					<br>
+					<div class="deuxbtn">
+					<a href="{{ path('app_products_show', {id: produit.id}) }}" class="btn">Voir</a>
+					{# <button></button> #}
+					{% set isProduitExist=[] %}
+					{% if app.session.get('panier')  %}
+						{% set isProduitExist = app.session.get('panier')|filter(item => item.id == produit.id) %}
+					{% endif %}
+					{% if isProduitExist|length == 0  %}
+						<a href="{{ path('add', {id: produit.id}) }}" class="btn">
+							<i class="fa-solid fa-cart-arrow-down"></i>
+						</a> 
+					{% else %}
+						<a href="{{ path('remove', {id: produit.id}) }}" class="btn">
+							<i class="fa-solid fa-check"></i>
+						</a> 
+					{% endif %}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
 
 	<script src="panier.js"></script>
-{# {{ path('app_panier') }} #}
+	{# {{ path('app_panier') }} #}
 {% endblock %}

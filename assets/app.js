@@ -3,6 +3,7 @@ require('bootstrap/dist/css/bootstrap.min.css');
 // import './main.js'
 import './bootstrap.js';
 import './styles/style.css'
+// css du panier js 
 import './panier.js';
 
 /*
