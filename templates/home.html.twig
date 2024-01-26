@@ -90,11 +90,17 @@
 			<div class="box">
 				<img src="{{produit.images}}" alt="">
 				<h3>{{produit.nomproduit}}</h3>
-				<span>{{produit.prix}}</span>
+				<span>{{produit.prix}} €</span>
                 <br>
-				<a href="#" class="btn">Acheter</a>
+				<a href="{{ path('app_product', {id: produit.id}) }}" class="btn">Voir</a>
 				 {# <button></button> #}
-				<a href="{{ path('add', {id: produit.id}) }}" class="panier"><i class="fa-solid fa-cart-arrow-down"></i></a> 				
+				 {% set isProduitExist=[] %}
+				 {% if app.session.get('panier')  %}
+				 	{% set isProduitExist = app.session.get('panier')|filter(item => item.id == produit.id) %}
+				 {% endif %}
+				 {% if isProduitExist|length == 0  %}
+					<a href="{{ path('add', {id: produit.id}) }}" class="panier"><i class="fa-solid fa-cart-arrow-down"></i></a> 				
+				 {% endif %}
 			</div>
 		{% endfor %}
 		</div>  
