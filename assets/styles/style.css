@@ -22,7 +22,7 @@ body{
 :root{
 --main-color:#d90429;
 --text-color:#020102;
---bg-color:#ffffff;
+--bg-color:#fff;
 }
 /* custom scroll Bar*/
 html::-webkit-scrollbar{
