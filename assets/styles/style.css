@@ -13,12 +13,16 @@ box-sizing: border-box;
 text-decoration: none;
 }
 
+body{
+	background: #000;
+}
+
 /*Variables*/
 
 :root{
 --main-color:#d90429;
 --text-color:#020102;
---bg-color:#fff;
+--bg-color:#ffffff;
 }
 /* custom scroll Bar*/
 html::-webkit-scrollbar{
