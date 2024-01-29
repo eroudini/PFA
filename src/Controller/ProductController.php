@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Products;
-
 use App\Repository\ProductsRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProductController extends AbstractController
 {
-    #[Route('/products', name: 'app_product', methods: ['GET'])]
+    #[Route('/{id}', name: 'app_product', methods: ['GET'])]
     public function index(ProductsRepository $products, Request $request): Response
     {
   
@@ -29,3 +28,6 @@ class ProductController extends AbstractController
     //     return $this->render("product/details.html.twig", compact('product'));
             
     }    
+
+
+
