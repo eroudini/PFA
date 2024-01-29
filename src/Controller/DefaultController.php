@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller;
 
-use App\Repository\ProductsRepository;
+use App\Repository\ProduitsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -16,9 +16,9 @@ class DefaultController extends AbstractController {
     }
    
     #[Route("/", name: "home")]
-    public function home(ProductsRepository $ProductsRepository): Response
+    public function home(ProduitsRepository $produitsRepository): Response
     {
-        $produits = $ProductsRepository->findAll();
+        $produits = $produitsRepository->findAll();
         
         return $this->render("home.html.twig", [
             'produits' => $produits
