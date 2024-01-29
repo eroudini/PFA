@@ -22,6 +22,9 @@ class Products
     #[ORM\Column]
     private ?float $prix = null;
 
+    #[ORM\Column(length: 950)]
+    private ?string $description = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Products
     public function setPrix(float $prix): static
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): static
+    {
+        $this->description = $description;
 
         return $this;
     }
