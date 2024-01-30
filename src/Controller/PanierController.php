@@ -1,6 +1,10 @@
 <?php
 namespace App\Controller;
 
+use App\DTO\CartDTO;
+use App\DTO\CartItemDTO;
+use App\Form\CartType;
+use App\Form\CartCollectionType;
 use App\Repository\OrderRepository;
 use App\Repository\ProductsRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -9,60 +13,53 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\DependencyInjection\Loader\Configurator\form;
 
 class PanierController extends AbstractController
 {
     #[Route('/panier', name: 'app_panier')]
     // #[Route('/', name: 'index')]
-    public function index(SessionInterface $session, ProductsRepository $ProductsRepository)
+    public function index(SessionInterface $session, ProductsRepository $ProductsRepository, Request $request)
     {
-
-        $panier = $session->get("panier", []);
-        $dataPanier = [];
-        $total = 0;
-        $quantite = 0;
-    
-        // foreach ($panier as $id => $quantite) {
-        //     // recherche de produits dans la bdd
-        //     $produit = $ProductsRepository->find($id);
-
-        //     if($produit){
-        //         // constructipon du tableau
-        //         $dataPanier[] = [
-        //             "produit" => $produit,
-        //             "quantite" => $quantite,
-        //             "total" => $produit->getPrix() * $quantite,
-        //         ];
-        //         $total += $produit->getPrix() * $quantite;
-        //     }
-        // }
-
-        return $this->render('panier/index.html.twig', 
-            [
-                "produits" => $panier,
-                // "total" => $total,
-
-        ]);
-
-
-    }
-    
-    #[Route('/add/{id}', name: 'add')]
-    public function add(ProductsRepository $ProductsRepository, Request $request, $id)
-    {
-        $product = $ProductsRepository->find((int)$id);
-        $panier = [];
-        if ($request->getSession()->has('panier')) {
-            $panier = $request->getSession()->get('panier');
-            // $panier->setQuantity(1);
+        // création d'un formulaire contenant une collection de formulaires gérants
+        // chaque produit et sa quantité
+        // ces formulaires seront mappés à des DTOs qu'il faudra aussi créer
+        $cartDTO = new CartDTO();
+        $cart = $request->getSession()->get('panier', []);
+        foreach ($cart as $product) {
+            $sale = new CartItemDTO();
+            $sale->setProduct($product);
+            $cartDTO->addProduct($sale);
         }
-        $panier[] = $product;
+        $form = $this->createForm(CartCollectionType::class, $cartDTO);
+        $form->handleRequest($request);
+        $cartDTO->initializeCart();
 
-        $panier = $request->getSession()->set('panier', $panier);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+			// envoyer vers la page de paiement
+            dd($cartDTO);
+        }
+    
+        return $this->render('panier/index.html.twig', [
+            'cart' => $cart,
+            'cartForm' => $form->createView(),
+        ]);
+        
+    
+    }
 
-        // Ensuite redirection page panier
-
-        return $this->redirectToRoute('home');
+    #[Route('/{id}/add-cart', name: 'app_product_add_cart', methods: ['GET'])]
+    public function addCart($id, Request $request, ProductsRepository $repository): Response
+    {
+    $product = $repository->find((int)$id);
+    $cart = [];
+    if ($request->getSession()->get('panier')) {
+        $cart = $request->getSession()->get('panier');
+    }
+    $cart[] = $product;
+    $request->getSession()->set('panier', $cart);
+    return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
     }
 
     // function remove product
@@ -81,4 +78,5 @@ class PanierController extends AbstractController
 
         return $this->redirectToRoute("app_panier");
     }
+
 }
