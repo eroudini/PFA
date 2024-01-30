@@ -20,7 +20,7 @@ class Voitures
     #[ORM\Column(length: 255)]
     private ?string $prix = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 950)]
     private ?string $descriptions = null;
 
     #[ORM\Column(length: 255)]

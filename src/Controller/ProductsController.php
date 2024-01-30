@@ -20,6 +20,7 @@ class ProductsController extends AbstractController
         return $this->render('products/index.html.twig', [
             'products' => $productsRepository->findAll(),
         ]);
+
     }
 
     #[Route('/new', name: 'app_products_new', methods: ['GET', 'POST'])]
@@ -78,4 +79,5 @@ class ProductsController extends AbstractController
 
         return $this->redirectToRoute('app_products_index', [], Response::HTTP_SEE_OTHER);
     }
+
 }
