@@ -127,17 +127,17 @@
 		<div class="modal-content">
 			<div class="modal-header text-center">
 				<h4 class="modal-title w-100 font-weight-bold">Vous souhaitez voir cette <strong><span>{{voiture.nom}}</span></strong> en point de vente ?</h4>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				{# <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
-				</button>
+				</button> #}
 			</div>
+              <p>HorizonCar vous contactera dans un délai maximum de 24 heures.</p>
+
       {{ form_start(form) }}
 			 <div class="modal-body mx-3">
       
        <div class="md-form mb-5">
 					<i class="fas fa-user prefix grey-text"></i>
-					{# <input type="text" id="form3" class="form-control validate"> #}
-					{# <label data-error="wrong" data-success="right" for="form3">Votre nom</label> #}
           <label data-error="wrong" data-success="right" for="form3">Votre nom</label>
         {{form_widget(form.Nom, {
             'attr': {
@@ -148,8 +148,6 @@
 
 				<div class="md-form mb-5">
 					<i class="fa-solid fa-envelope"></i>
-					{# <input type="text" id="form3" class="form-control validate"> #}
-					{# <label data-error="wrong" data-success="right" for="form3">Votre nom</label> #}
           <label data-error="wrong" data-success="right" for="form3">Mail</label>
         {{form_widget(form.Mail, {
             'attr': {
@@ -160,9 +158,6 @@
         
 				<div class="md-form mb-4">
 					<i class="fa-solid fa-phone"></i>
-					{# <input type="email" id="form2" class="form-control validate"> #}
-					{# <label data-error="wrong" data-success="right" for="form2">Tél</label> #}
-
            <label data-error="wrong" data-success="right" for="form2">Tel</label>
         {{form_widget(form.Tel, {
             'attr': {
@@ -178,38 +173,8 @@
 			</div> 
       {{ form_end(form) }}
 
-        {# ANICEN CODE A SUPPRIMER #}
-      {# <br>
-      <div>
-        <p>
-            HorizonCar vous contactera dans un délai maximum de 48 heures. Pendant cette période, 
-            veuillez surveiller attentivement votre boîte de réception ainsi que votre dossier de courriers indésirables.
-            Nous nous efforçons de répondre rapidement à toutes les demandes afin de vous offrir le meilleur service possible.</p>
-      </div>
-      <label for="inputMail">Mail</label>
-        {{form_widget(form.Mail, {
-            'attr': {
-            'class': 'form-control'
-             }
-        })}}
-
-        <label for="inputTel">Tel</label>
-        {{form_widget(form.Tel, {
-            'attr': {
-            'class': 'form-control'
-             }
-        })}}
-
-        <br> #}
-
-    {# <button class="btn">{{ button_label|default('Être rappelé(e)') }}</button> #}
-
      
 		</div>
 	</div>
 </div>
-
-
-
-
 {% endblock %}

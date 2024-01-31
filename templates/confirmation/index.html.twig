@@ -1,0 +1,40 @@
+<html lang="fr">
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Confirmation
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/united/bootstrap.min.css">
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/united/_variables.scss">
+		{% endblock %}
+
+		{% block javascripts %}
+		<script src="https://kit.fontawesome.com/f25d326f0c.js" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous" ></script>
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
+		{% endblock %}
+	</head>
+
+{% block body %}
+
+<div class="container mt-5">
+    <div class="jumbotron">
+      <h1 class="display-4">Confirmation de Réception</h1>
+      <p class="lead">Merci !</p>
+      <hr class="my-4">
+      <p>Votre demande a bien été reçue par notre équipe chez HorizonCar. Nous nous engageons à vous fournir une réponse dans les plus brefs délais.</p>
+
+      <p>Entre-temps, si vous avez des questions supplémentaires ou si vous souhaitez obtenir des informations complémentaires sur nos services, 
+        n'hésitez pas à consulter notre site web ou à nous contacter directement par téléphone au numéro indiqué sur notre site.</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="{{ path('home') }}" role="button">Retour à l'accueil</a>
+      </p>
+    </div>
+</div>
+{% endblock %}
+

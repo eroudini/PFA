@@ -96,14 +96,14 @@ color: var(--text-color);
 color: var(--main-color);
 }
 
-.navbar{
+.navbar-expand-lg{
 text-decoration-line: none;
 list-style: none;
 display: flex;
 column-gap: 2rem;
 }
 
-.navbar a{
+.navbar-expand-lg a{
 color: var(--text-color);
 font-size: 1rem;
 text-transform: uppercase;
@@ -111,11 +111,11 @@ font-weight: 500;
 
 }
 
-.navbar a:hover,
+/* .navbar-expand-lg a:hover,
 .navbar .active{
 color: var(--main-color);
 border-bottom: 3px solid var(--main-color);
-}
+} */
 
 .home{
 width: 100%;
@@ -132,7 +132,6 @@ padding-left: 130px;
 .home-text h1{
 font-size: 2.4rem;
 }
-
 
 #home-text span{
 color: var(--main-color);
@@ -153,10 +152,6 @@ font-weight: 400;
 
 .btn:hover{
 background: #fd052f;
-}
-
-.deuxbtn{
-/* border: 2px solid black ; */
 }
 
 .ou{
@@ -207,6 +202,13 @@ background: #ccadad;
 
 .heading{
 text-align: center;
+}
+
+.confirmation{
+
+width: 50rem;
+border: 2px solid black !important;
+
 }
 
 .heading2{  
@@ -388,6 +390,7 @@ text-decoration: underline;
 background: var(--text-color);
 color: #f6f6f6;
 border-top: 2px solid var(--main-color);
+height: 15rem;
 }
 
 .footer-container{
@@ -433,7 +436,6 @@ margin-bottom: 1rem;
 
 }
 
-
 .footer-box p:hover{
 color: var(--main-color);
 }
@@ -453,7 +455,7 @@ color: var(--main-color);
 
 
 .copyright{
-padding: 20px;
+padding: 10px;
 text-align: center;
 color: var(--bg-color);
 background: var(--text-color);
