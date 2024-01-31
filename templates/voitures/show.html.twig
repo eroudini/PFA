@@ -53,7 +53,7 @@
 
           <div class="row">
             <dt class="col-3">Kilometrages</dt>
-            <dd class="col-9">{{voiture.kilometrage}}</dd>
+            <dd class="col-9">{{ voiture.kilometrage }}</dd>
 
             <dt class="col-3">Circulation</dt>
             <dd class="col-9">{{ voiture.circulation }}</dd>
@@ -63,13 +63,15 @@
           </div>
 
           <hr/>
-          <a href="#" class="btn3 py-3 icon-hover px-5"><i class="fa-solid fa-phone"></i>  Être rappelé(e)</a>
-          {# <a href="#" class="btn btn-light border border-secondary py-2 icon-hover px-3"> <i class="me-1 fa fa-heart fa-lg"></i> Save </a>  #}
-          {# <hr> #}
+          <div class="deuxbtn"> 
+          <button type="button" class="btn3 py-2 icon-hover px-5" data-bs-toggle="modal" data-bs-target="#contactclients">
+            Être rappelé(e)
+          </button>
           <br>
-          <div class="ou">Ou</div>    
-          <a href="mailto:contact@horizoncar.com?Subject=Demande d'informations'&body=Nous souhaitons prendre contact avec vous afin que vous nous présentiez vos services..." class="btn2 py-3 icon-hover px-5" title="ouverture fenêtre de conversation"> <i class="fa-solid fa-envelope"></i> Enovyez un mail</a>
-        
+          <div class="ou">Ou</div> 
+          <button type="button" class="btn2 py-2 icon-hover px-5" title="ouverture fenêtre de conversation"><a href="mailto:contact@horizoncar.com?Subject=Demande d'informations'&body=Nous souhaitons prendre contact avec vous afin que vous nous présentiez vos services..."> <i class="fa-solid fa-envelope"></i> Enovyez un mail </a></button>   
+          {# <a href="mailto:contact@horizoncar.com?Subject=Demande d'informations'&body=Nous souhaitons prendre contact avec vous afin que vous nous présentiez vos services..." class="btn2 py-2 icon-hover px-5" title="ouverture fenêtre de conversation"> <i class="fa-solid fa-envelope"></i> Enovyez un mail</a>  #}
+          </div>
 
         </div>
       </main>
@@ -118,5 +120,96 @@
         </div>       
     </div>        
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="contactclients" tabindex="-1" role="dialog" aria-labelledby="annModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header text-center">
+				<h4 class="modal-title w-100 font-weight-bold">Vous souhaitez voir cette <strong><span>{{voiture.nom}}</span></strong> en point de vente ?</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+      {{ form_start(form) }}
+			 <div class="modal-body mx-3">
+      
+       <div class="md-form mb-5">
+					<i class="fas fa-user prefix grey-text"></i>
+					{# <input type="text" id="form3" class="form-control validate"> #}
+					{# <label data-error="wrong" data-success="right" for="form3">Votre nom</label> #}
+          <label data-error="wrong" data-success="right" for="form3">Votre nom</label>
+        {{form_widget(form.Nom, {
+            'attr': {
+            'class': 'form-control'
+             }
+        })}}
+				</div>
+
+				<div class="md-form mb-5">
+					<i class="fa-solid fa-envelope"></i>
+					{# <input type="text" id="form3" class="form-control validate"> #}
+					{# <label data-error="wrong" data-success="right" for="form3">Votre nom</label> #}
+          <label data-error="wrong" data-success="right" for="form3">Mail</label>
+        {{form_widget(form.Mail, {
+            'attr': {
+            'class': 'form-control'
+             }
+        })}}
+				</div>
+        
+				<div class="md-form mb-4">
+					<i class="fa-solid fa-phone"></i>
+					{# <input type="email" id="form2" class="form-control validate"> #}
+					{# <label data-error="wrong" data-success="right" for="form2">Tél</label> #}
+
+           <label data-error="wrong" data-success="right" for="form2">Tel</label>
+        {{form_widget(form.Tel, {
+            'attr': {
+            'class': 'form-control'
+             }
+        })}}
+				</div>
+
+			</div>
+			<div class="modal-footer d-flex justify-content-center">
+				<button class="btn btn-indigo">{{ button_label|default('Être rappelé(e)') }}
+				</button>
+			</div> 
+      {{ form_end(form) }}
+
+        {# ANICEN CODE A SUPPRIMER #}
+      {# <br>
+      <div>
+        <p>
+            HorizonCar vous contactera dans un délai maximum de 48 heures. Pendant cette période, 
+            veuillez surveiller attentivement votre boîte de réception ainsi que votre dossier de courriers indésirables.
+            Nous nous efforçons de répondre rapidement à toutes les demandes afin de vous offrir le meilleur service possible.</p>
+      </div>
+      <label for="inputMail">Mail</label>
+        {{form_widget(form.Mail, {
+            'attr': {
+            'class': 'form-control'
+             }
+        })}}
+
+        <label for="inputTel">Tel</label>
+        {{form_widget(form.Tel, {
+            'attr': {
+            'class': 'form-control'
+             }
+        })}}
+
+        <br> #}
+
+    {# <button class="btn">{{ button_label|default('Être rappelé(e)') }}</button> #}
+
+     
+		</div>
+	</div>
+</div>
+
+
+
 
 {% endblock %}

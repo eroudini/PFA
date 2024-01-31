@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acontacter{% endblock %}
+
+{% block body %}
+    <h1>Acontacter</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ acontacter.id }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ acontacter.Mail }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ acontacter.Tel }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_acontacter_index') }}">back to list</a>
+
+    <a href="{{ path('app_acontacter_edit', {'id': acontacter.id}) }}">edit</a>
+
+    {{ include('acontacter/_delete_form.html.twig') }}
+{% endblock %}

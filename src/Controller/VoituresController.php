@@ -3,13 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Voitures;
+use App\Entity\Acontacter;
 use App\Form\VoituresType;
+use App\Form\AcontacterType;
 use App\Repository\VoituresRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/voitures')]
 class VoituresController extends AbstractController
@@ -42,11 +44,24 @@ class VoituresController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_voitures_show', methods: ['GET'])]
-    public function show(Voitures $voiture): Response
+    #[Route('/{id}', name: 'app_voitures_show',  methods: ['GET', 'POST'])]
+    public function show(Voitures $voiture, Request $request, EntityManagerInterface $entityManager): Response
     {
+        $acontacter = new Acontacter();
+        $form = $this->createForm(AcontacterType::class, $acontacter);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($acontacter);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+        }
+
         return $this->render('voitures/show.html.twig', [
             'voiture' => $voiture,
+            'acontacter' => $acontacter,
+            'form' => $form,
         ]);
     }
 
@@ -78,4 +93,27 @@ class VoituresController extends AbstractController
 
         return $this->redirectToRoute('app_voitures_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    // CETTE ROUTE EST POUR GERER LES FORMULAIRES DE CONTACT DES PERSONNES INTERESSER PAR LES VEHICULES
+
+    // #[Route('/new', name: 'app_acontacter_new', methods: ['GET', 'POST'])]
+    // public function newContact(Request $request, EntityManagerInterface $entityManager): Response
+    // {
+    //     $acontacter = new Acontacter();
+    //     $form = $this->createForm(AcontacterType::class, $acontacter);
+    //     $form->handleRequest($request);
+
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $entityManager->persist($acontacter);
+    //         $entityManager->flush();
+
+    //         return $this->redirectToRoute('app_voitures_show', [], Response::HTTP_SEE_OTHER);
+    //     }
+
+    //     return $this->render('acontacter/show.html.twig', [
+    //         'acontacter' => $acontacter,
+    //         'form' => $form,
+    //     ]);
+    // }
+
 }

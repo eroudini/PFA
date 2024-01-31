@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Acontacter{% endblock %}
+
+{% block body %}
+    <h1>Create new Acontacter</h1>
+
+    {{ include('acontacter/_form.html.twig') }}
+
+    <a href="{{ path('app_acontacter_index') }}">back to list</a>
+{% endblock %}
