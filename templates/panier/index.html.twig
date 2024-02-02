@@ -5,6 +5,45 @@
 
 {% block body %}
 
+<script>
+// Cet événement est déclenché lorsque le DOM est complètement chargé
+document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionne tous les champs de quantité
+    var quantityFields = document.querySelectorAll('.form-control-sm');
+
+    // Parcourt chaque champ de quantité sélectionné
+    quantityFields.forEach(function(field) {
+        // Ajoute un écouteur d'événements 
+        field.addEventListener('input', function() {
+            // Récupère la valeur de quantité saisie et la convertit en entier
+            var quantity = parseInt(this.value);
+            // Récupère l'élément qui affiche le prix unitaire du produit le plus proche
+            var priceElement = this.closest('.card-body').querySelector('.mb-0');
+            // Récupère le texte du prix unitaire
+            var priceText = priceElement.textContent;
+            // Extrait le prix unitaire du texte et le convertit en nombre à virgule flottante
+            var price = parseFloat(priceText.substring(0, priceText.length - 2)); 
+            // Récupère l'élément qui affiche le prix total du produit
+            var totalPriceElement = this.closest('.card-body').querySelector('#total-price');
+
+            // Récupère le prix total actuel et le convertit en nombre à virgule flottante
+            var currentTotalPrice = parseFloat(totalPriceElement.textContent);
+            // Récupère la quantité précédente à partir de l'attribut de données ou 0 s'il n'existe pas
+            var previousQuantity = parseInt(this.dataset.previousQuantity) || 0;
+            // Calcule le changement de prix en fonction de la variation de quantité
+            var priceChange = (quantity - previousQuantity) * price;
+            // Calcule le nouveau prix total en ajoutant le changement de prix au total actuel
+            var newTotalPrice = currentTotalPrice + priceChange;
+
+            // Met à jour le contenu de l'élément affichant le prix total avec le nouveau prix total calculé
+            totalPriceElement.textContent = newTotalPrice.toFixed(2) + " €";
+
+            // Met à jour l'attribut de données avec la quantité actuelle pour la prochaine utilisation
+            this.dataset.previousQuantity = quantity;
+        });
+    });
+});
+</script>
 	<section class="h-100" style="background-color: #eee;">
 		<div class="container h-100 py-5">
 			<div class="row d-flex justify-content-center align-items-center h-100">
@@ -38,7 +77,8 @@
                         }) }}                       
                       </div>
                       <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h5 class="mb-0">{{saleForm.vars['data'].getProduct().prix}} €</h5>
+                        <p class="mb-0">{{saleForm.vars['data'].getProduct().prix}} €</p>
+                         <p>Total:<span id="total-price"> 0.00 €</span></p>
                       </div>
                       <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                         <a href="{{ path('remove', { id: saleForm.vars['data'].getProduct().id, csrf_token: csrf_token('delete' ~ saleForm.vars['data'].getProduct().id) }) }}" class="text-danger">
@@ -51,10 +91,8 @@
               {% endfor %}
               <div class="card">
                 <div class="card-body">
-                    <button type="submit" class="btn btn-warning btn-block btn-lg">Procedée au paiement
-                      <span>de
-                      </span>
-                    </button>
+
+                    <button type="submit" class="btn btn-warning btn-block btn-lg">Valider le panier</button>
                 </div>
               </div>
 						{{ form_end(cartForm) }}

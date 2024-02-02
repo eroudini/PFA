@@ -1,9 +1,7 @@
-{% extends 'base.html.twig' %}
 
-{% block title %}Checkout{% endblock %}
 
-{% block body %}
-<div class="container">
+{{ form_start(form) }}
+    <div class="container">
   <main>
     <div class="py-5 text-center">
       <h2>Validation de commande</h2>
@@ -11,6 +9,7 @@
 
     <div class="row g-5">
       <div class="col-md-5 col-lg-4 order-md-last">
+      
         <h4 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-primary">Votre panier</span>
           <span class="badge bg-primary rounded-pill">3</span>
@@ -37,33 +36,24 @@
             </div>
             <span class="text-muted">$5</span>
           </li>
-          <li class="list-group-item d-flex justify-content-between bg-light">
-            <div class="text-success">
-              <h6 class="my-0">Promo code</h6>
-              <small>EXAMPLECODE</small>
-            </div>
-            <span class="text-success">−$5</span>
-          </li>
+          
           <li class="list-group-item d-flex justify-content-between">
-            <span>Total (USD)</span>
+            <span>Total (EUR)</span>
             <strong>$20</strong>
           </li>
         </ul>
 
-        <form class="card p-2">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Promo code">
-            <button type="submit" class="btn btn-secondary">Redeem</button>
-          </div>
-        </form>
       </div>
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">Coordonnées</h4>
-        <form class="needs-validation" novalidate>
           <div class="row g-3">
             <div class="col-sm-6">
               <label for="firstName" class="form-label">Nom</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+              {{ form_widget(form.Nom,{
+                'attr':{
+                        'class' : 'form-control'
+                    }
+              })}}
               <div class="invalid-feedback">
                 Veuillez entrez votre nom.
               </div>
@@ -71,7 +61,11 @@
 
             <div class="col-sm-6">
               <label for="lastName" class="form-label">Prénom</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              {{ form_widget(form.Prenom,{
+                'attr':{
+                        'class' : 'form-control'
+                    }
+              })}}
               <div class="invalid-feedback">
                 Veuillez entrez votre prénom.
               </div>
@@ -79,7 +73,12 @@
 
             <div class="col-12">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
+              {{ form_widget(form.Email,{
+                'attr':{
+                    'class' : 'form-control',
+                    'placeholder': 'email@example.com'
+                    }
+              })}}
               <div class="invalid-feedback">
                 Veuillez entrez une adresse mail valide.
               </div>
@@ -87,7 +86,12 @@
 
             <div class="col-12">
               <label for="address" class="form-label">Adresse</label>
-              <input type="text" class="form-control" id="address" placeholder="7 rue des rastels" required>
+            {{ form_widget(form.Adresse,{
+                'attr':{
+                    'class' : 'form-control',
+                    'placeholder': '7 rue des rastels'
+                    }
+              })}}
               <div class="invalid-feedback">
                 Veuillez entrez une adresse valide.
               </div>
@@ -95,7 +99,12 @@
 
             <div class="col-md-3">
               <label for="zip" class="form-label">Code postal</label>
-              <input type="text" class="form-control" id="zip" placeholder="" required>
+            {{ form_widget(form.postal,{
+                'attr':{
+                    'class' : 'form-control',
+                    'placeholder': '69006'
+                    }
+              })}}
               <div class="invalid-feedback">
                 Veuillez entrez un code postal.
               </div>
@@ -164,11 +173,11 @@
           </div>
 
           <hr class="my-4">
-
-          <button class="w-100 btn btn-primary btn-lg" type="submit">Valider le paiement</button>
-        </form>
+        <button class="btn">{{ button_label|default('Valider la commande') }}</button> 
+        <hr>
+        <br>
       </div>
     </div>
   </main>
   </div>
-{% endblock %}
+{{ form_end(form) }}

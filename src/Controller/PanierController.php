@@ -36,9 +36,16 @@ class PanierController extends AbstractController
         $cartDTO->initializeCart();
 
         if ($form->isSubmitted() && $form->isValid())
-        {
-			// envoyer vers la page de paiement
-            dd($cartDTO);
+        {   
+
+
+            // envoyer vers la page de paiement
+            // dd($cartDTO);
+            // produits soumis du formulaire :
+
+            // dd($products);
+            return $this->redirectToRoute("app_commandes_new");
+
         }
     
         return $this->render('panier/index.html.twig', [
