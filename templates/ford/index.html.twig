@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Ford
+{% endblock %}
+
+{% block body %}
+
+		<div class="heading2 py-3">
+			<h2>Desirez vous d'une Ford ? 😎</h2>
+			<p>Trouvez votre Ford de rêve chez nous et laissez-nous concrétiser vos rêves automobiles.</p>
+		</div>
+
+		{# FILTRE DE RECHERCHE #}
+
+
+		 {# test nouvelle card #}
+
+		 <div class="parts-container container">
+			<!--Box 1-->
+		{% for Ford in Ford %}
+			<div class="boxcar">
+				<img src="{{ Ford.images }}" class="" alt="...">
+				<h5>{{Ford.nom}}</h5>
+				<span>{{Ford.prix}}</span>
+				<ul class="list-group list-group-flush">
+						<li class="list-group-item">Mise en circulation: 
+						{{Ford.circulation}}</li> 
+						<li class="list-group-item">Kilométrages:
+						{{Ford.Kilometrage}}</li>
+						<li class="list-group-item">Carburant:
+						{{Ford.Carburant}}</li>  
+				</ul>
+                <br>
+				<a href="{{ path ('app_voitures_show', {id: Ford.id} )}}" class="btn">En savoir plus</a>
+				{# <a href="#" class="details"><i class="fa-solid fa-cart-arrow-down"></i></a> #}
+
+			</div>
+		{% endfor %}
+		</div>
+
+{% endblock %}

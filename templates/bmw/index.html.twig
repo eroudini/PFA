@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}BMW
+{% endblock %}
+
+{% block body %}
+
+		<div class="heading2 py-3">
+			<h2>Desirez vous d'une BMW ? 😎</h2>
+			<p>Trouvez votre BMW de rêve chez nous et laissez-nous concrétiser vos rêves automobiles.</p>
+		</div>
+
+		{# FILTRE DE RECHERCHE #}
+
+
+		 {# test nouvelle card #}
+
+		 <div class="parts-container container">
+			<!--Box 1-->
+		{% for BMW in BMW %}
+			<div class="boxcar">
+				<img src="{{ BMW.images }}" class="" alt="...">
+				<h5>{{BMW.nom}}</h5>
+				<span>{{BMW.prix}}</span>
+				<ul class="list-group list-group-flush">
+						<li class="list-group-item">Mise en circulation: 
+						{{BMW.circulation}}</li> 
+						<li class="list-group-item">Kilométrages:
+						{{BMW.Kilometrage}}</li>
+						<li class="list-group-item">Carburant:
+						{{BMW.Carburant}}</li>  
+				</ul>
+                <br>
+				<a href="{{ path ('app_voitures_show', {id: BMW.id} )}}" class="btn">En savoir plus</a>
+				{# <a href="#" class="details"><i class="fa-solid fa-cart-arrow-down"></i></a> #}
+
+			</div>
+		{% endfor %}
+		</div>
+
+{% endblock %}

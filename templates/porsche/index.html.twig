@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Porsche
+{% endblock %}
+
+{% block body %}
+
+		<div class="heading2 py-3">
+			<h2>Desirez vous d'une Porsche ? 😎</h2>
+			<p>Trouvez votre Porsche de rêve chez nous et laissez-nous concrétiser vos rêves automobiles.</p>
+		</div>
+
+		{# FILTRE DE RECHERCHE #}
+
+
+		 {# test nouvelle card #}
+
+		 <div class="parts-container container">
+			<!--Box 1-->
+		{% for Porsche in VPorsche %}
+			<div class="boxcar">
+				<img src="{{ Porsche.images }}" class="" alt="...">
+				<h5>{{Porsche.nom}}</h5>
+				<span>{{Porsche.prix}}</span>
+				<ul class="list-group list-group-flush">
+						<li class="list-group-item">Mise en circulation: 
+						{{Porsche.circulation}}</li> 
+						<li class="list-group-item">Kilométrages:
+						{{Porsche.Kilometrage}}</li>
+						<li class="list-group-item">Carburant:
+						{{Porsche.Carburant}}</li>  
+				</ul>
+                <br>
+				<a href="{{ path ('app_voitures_show', {id: Porsche.id} )}}" class="btn">En savoir plus</a>
+				{# <a href="#" class="details"><i class="fa-solid fa-cart-arrow-down"></i></a> #}
+
+			</div>
+		{% endfor %}
+		</div>
+
+{% endblock %}

@@ -86,4 +86,6 @@ class PanierController extends AbstractController
         return $this->redirectToRoute("app_panier");
     }
 
+    // Pour les fiches produits des accessoires
+
 }

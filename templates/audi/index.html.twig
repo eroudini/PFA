@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Audi
+{% endblock %}
+
+{% block body %}
+
+		<div class="heading2 py-3">
+			<h2>Desirez vous d'une Audi ? 😎</h2>
+			<p>Trouvez votre Audi de rêve chez nous et laissez-nous concrétiser vos rêves automobiles.</p>
+		</div>
+
+		{# FILTRE DE RECHERCHE #}
+
+
+		 {# test nouvelle card #}
+
+		 <div class="parts-container container">
+			<!--Box 1-->
+		{% for Audi in Audi %}
+			<div class="boxcar">
+				<img src="{{ Audi.images }}" class="" alt="...">
+				<h5>{{Audi.nom}}</h5>
+				<span>{{Audi.prix}}</span>
+				<ul class="list-group list-group-flush">
+						<li class="list-group-item">Mise en circulation: 
+						{{Audi.circulation}}</li> 
+						<li class="list-group-item">Kilométrages:
+						{{Audi.Kilometrage}}</li>
+						<li class="list-group-item">Carburant:
+						{{Audi.Carburant}}</li>  
+				</ul>
+                <br>
+				<a href="{{ path ('app_voitures_show', {id: Audi.id} )}}" class="btn">En savoir plus</a>
+				{# <a href="#" class="details"><i class="fa-solid fa-cart-arrow-down"></i></a> #}
+
+			</div>
+		{% endfor %}
+		</div>
+
+{% endblock %}
