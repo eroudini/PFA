@@ -1,4 +1,8 @@
-import './styles/global.css'
+import './styles/global.css';
+// admin css
+import './styles/sb-admin-2.css';
+import './styles/sb-admin-2.min.css';
+
 require('bootstrap/dist/css/bootstrap.min.css');
 // import './main.js'
 import './bootstrap.js';
