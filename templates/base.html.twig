@@ -14,6 +14,7 @@
 
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/united/bootstrap.min.css">
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/united/_variables.scss">
+			<link rel="stylesheet" href="path/to/atropos.css" />
 			<link rel="stylesheet" href="/assets/styles/style.css">
 			<link rel="stylesheet" href="/style.css"> 
 
@@ -75,7 +76,7 @@
             </li>
 			{% else %}
 			<a class="nav-link mx-2 text-uppercase" href="{{ path('app_login') }}"><i class="fa-solid fa-cart-shopping me-1">{{app.session.get('panier') | length}}</i></a>
-			{% endif %}.
+			{% endif %}
             <li class="nav-item">
 
 		{# Href conditionelle si l'utilisateur est connecter le chemin est différent #}

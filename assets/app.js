@@ -4,6 +4,8 @@ require('bootstrap/dist/css/bootstrap.min.css');
 import './bootstrap.js';
 import './styles/style.css'
 import './panier.js';
+import 'atropos/css';
+
 
 /*
  * Welcome to your app's main JavaScript file!

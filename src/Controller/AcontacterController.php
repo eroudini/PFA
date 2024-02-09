@@ -16,7 +16,7 @@ class AcontacterController extends AbstractController
 {
     #[Route('/', name: 'app_acontacter_index', methods: ['GET'])]
     public function index(AcontacterRepository $acontacterRepository): Response
-    {
+    {  
         return $this->render('acontacter/index.html.twig', [
             'acontacters' => $acontacterRepository->findAll(),
         ]);
