@@ -310,6 +310,10 @@ margin: 0.5rem 0 1.4rem;
   
 }
 
+.imagecar{
+  height: 180px;
+  width: 280px;
+}
 
 .parts-container{
 display: flex;

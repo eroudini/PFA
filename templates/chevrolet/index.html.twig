@@ -21,17 +21,19 @@
 			<!--Box 1-->
 		{% for Chevrolet in Chevrolet %}
 			<div class="boxcar">
+				<div class="imagecar">
 				<img src="{{ Chevrolet.images }}" class="" alt="...">
+				</div>
 				<h5>{{Chevrolet.nom}}</h5>
 				<span>{{Chevrolet.prix}}</span>
-				<ul class="list-group list-group-flush">
+				<div class="">
 						<li class="list-group-item">Mise en circulation: 
 						{{Chevrolet.circulation}}</li> 
 						<li class="list-group-item">Kilométrages:
 						{{Chevrolet.Kilometrage}}</li>
 						<li class="list-group-item">Carburant:
 						{{Chevrolet.Carburant}}</li>  
-				</ul>
+				</div>
                 <br>
 				<a href="{{ path ('app_voitures_show', {id: Chevrolet.id} )}}" class="btn" id="btnveh">En savoir plus</a>
 				{# <a href="#" class="details"><i class="fa-solid fa-cart-arrow-down"></i></a> #}

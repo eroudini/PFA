@@ -21,17 +21,19 @@
 			<!--Box 1-->
 		{% for Ford in Ford %}
 			<div class="boxcar">
+				<div class="imagecar">
 				<img src="{{ Ford.images }}" class="" alt="...">
+				</div>
 				<h5>{{Ford.nom}}</h5>
 				<span>{{Ford.prix}}</span>
-				<ul class="list-group list-group-flush">
+				<div class="">
 						<li class="list-group-item">Mise en circulation: 
 						{{Ford.circulation}}</li> 
 						<li class="list-group-item">Kilométrages:
 						{{Ford.Kilometrage}}</li>
 						<li class="list-group-item">Carburant:
 						{{Ford.Carburant}}</li>  
-				</ul>
+				</div>
                 <br>
 				<a href="{{ path ('app_voitures_show', {id: Ford.id} )}}" class="btn" id="btnveh">En savoir plus</a>
 				{# <a href="#" class="details"><i class="fa-solid fa-cart-arrow-down"></i></a> #}

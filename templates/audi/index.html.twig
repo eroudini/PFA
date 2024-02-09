@@ -21,17 +21,19 @@
 			<!--Box 1-->
 		{% for Audi in Audi %}
 			<div class="boxcar">
+				<div class="imagecar">
 				<img src="{{ Audi.images }}" class="" alt="...">
+				</div>
 				<h5>{{Audi.nom}}</h5>
 				<span>{{Audi.prix}}</span>
-				<ul class="list-group list-group-flush">
+				<div class="">
 						<li class="list-group-item">Mise en circulation: 
 						{{Audi.circulation}}</li> 
 						<li class="list-group-item">Kilométrages:
 						{{Audi.Kilometrage}}</li>
 						<li class="list-group-item">Carburant:
 						{{Audi.Carburant}}</li>  
-				</ul>
+				</div>
                 <br>
 				<a href="{{ path ('app_voitures_show', {id: Audi.id} )}}" class="btn" id="btnveh">En savoir plus</a>
 				{# <a href="#" class="details"><i class="fa-solid fa-cart-arrow-down"></i></a> #}

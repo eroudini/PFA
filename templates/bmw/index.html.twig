@@ -21,17 +21,19 @@
 			<!--Box 1-->
 		{% for BMW in BMW %}
 			<div class="boxcar">
+				<div class="imagecar">
 				<img src="{{ BMW.images }}" class="" alt="...">
+				</div>
 				<h5>{{BMW.nom}}</h5>
 				<span>{{BMW.prix}}</span>
-				<ul class="list-group list-group-flush">
+				<div class="">
 						<li class="list-group-item">Mise en circulation: 
 						{{BMW.circulation}}</li> 
 						<li class="list-group-item">Kilométrages:
 						{{BMW.Kilometrage}}</li>
 						<li class="list-group-item">Carburant:
 						{{BMW.Carburant}}</li>  
-				</ul>
+				</div>
                 <br>
 				<a href="{{ path ('app_voitures_show', {id: BMW.id} )}}" class="btn" id="btnveh">En savoir plus</a>
 				{# <a href="#" class="details"><i class="fa-solid fa-cart-arrow-down"></i></a> #}

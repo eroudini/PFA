@@ -21,17 +21,19 @@
 			<!--Box 1-->
 		{% for mercedes in mercedes %}
 			<div class="boxcar">
+				<div class="imagecar">
 				<img src="{{ mercedes.images }}" class="" alt="...">
+				</div>
 				<h5>{{mercedes.nom}}</h5>
 				<span>{{mercedes.prix}}</span>
-				<ul class="list-group list-group-flush">
+				<div class="">
 						<li class="list-group-item">Mise en circulation: 
 						{{mercedes.circulation}}</li> 
 						<li class="list-group-item">Kilométrages:
 						{{mercedes.Kilometrage}}</li>
 						<li class="list-group-item">Carburant:
 						{{mercedes.Carburant}}</li>  
-				</ul>
+				</div>
                 <br>
 				<a href="{{ path ('app_voitures_show', {id: mercedes.id} )}}" class="btn" id="btnveh">En savoir plus</a>
 				{# <a href="#" class="details"><i class="fa-solid fa-cart-arrow-down"></i></a> #}
