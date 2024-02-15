@@ -388,10 +388,11 @@ text-decoration: underline;
 
 /* CARS */
 
+
 .parts-container .boxcar{
   flex: 1 1 17rem;
   position: relative;
-  padding: 20px;
+  /* padding: 20px; */
   display: flex;
   flex-direction: column;
   background: #f1f1f100;
@@ -411,6 +412,7 @@ background: var(--text-color);
 color: #f6f6f6;
 border-top: 2px solid var(--main-color);
 height: 15rem;
+margin-top: 5rem;
 }
 
 .footer-container{
@@ -486,7 +488,6 @@ background: var(--text-color);
 color: var(--main-color);
 }
 
-
 /* Responsive */
 
 /* Pour les écrans d'ordinateur et de tablettes */
@@ -497,6 +498,13 @@ color: var(--main-color);
   .navbar-brand{
     margin-top: 0.5rem;
   }
+
+}
+
+@media only screen and (min-width: 968px) {
+.carinfos{
+  margin-left: 10rem;
+}
 }
 
 
@@ -504,6 +512,10 @@ color: var(--main-color);
 .container {
 margin-left: 1rem;
 margin-right: 1rem;
+}
+
+.deuxbtn{
+  margin-left: 5rem;
 }
 
 }
@@ -537,6 +549,11 @@ padding: 10px 0;
 #menu-icon {
 display: initial;
 }
+
+.navbar-toggler{
+  margin-left: 7.5rem;
+}
+
 .navbar {
 position: absolute;
 top: 100%;
