@@ -85,6 +85,13 @@ color: var(--text-color);
 display: none;
 }
 
+.input-group input{
+height: 50px;
+
+}
+
+
+
 .logo{
 font-size: 1.2rem;
 font-weight: 700;
@@ -195,7 +202,8 @@ background: #ccadad;
   text-decoration: none;
   
 }
-    
+
+
 .btn3:hover{
   background: #ccadad;
 }
@@ -418,6 +426,7 @@ margin-bottom: 1rem;
 
 }
 
+
 .footer-container .footer-box{
 display: flex;
 flex-direction: column;
@@ -478,12 +487,25 @@ color: var(--main-color);
 }
 
 
-/* Making Responsive */
+/* Responsive */
+
+/* Pour les écrans d'ordinateur et de tablettes */
+@media only screen and (min-width: 768px) {
+  .container {
+    display: flex;
+  }
+  .navbar-brand{
+    margin-top: 0.5rem;
+  }
+}
+
+
 @media (max-width: 1080px) {
 .container {
 margin-left: 1rem;
 margin-right: 1rem;
 }
+
 }
 @media (max-width: 991px) {
 .nav {
@@ -508,6 +530,7 @@ color: var(--text-color);
 .search-box input {
 padding: 15px;
 }
+
 .nav {
 padding: 10px 0;
 }
@@ -567,6 +590,7 @@ font-size: 1.4rem;
 display: grid;
 grid-template-columns: 1fr 1fr;
 }
+
 }
 @media (max-width: 360px) {
 .search-box input {
