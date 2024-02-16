@@ -79,7 +79,4 @@ class ContactController extends AbstractController
         return $this->redirectToRoute('app_contact_index', [], Response::HTTP_SEE_OTHER);
     }
 
-
-    // Route page de confirmation
-
 }
