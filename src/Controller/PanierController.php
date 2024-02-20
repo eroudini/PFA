@@ -66,6 +66,7 @@ class PanierController extends AbstractController
     }
     $cart[] = $product;
     $request->getSession()->set('panier', $cart);
+
     return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
     }
 

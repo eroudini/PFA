@@ -11,12 +11,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
+
 #[Route('/contact')]
 class ContactController extends AbstractController
 {
     #[Route('/', name: 'app_contact_index', methods: ['GET'])]
     public function index(ContactRepository $contactRepository): Response
     {
+
         return $this->render('contact/index.html.twig', [
             'contacts' => $contactRepository->findAll(),
         ]);
@@ -25,6 +29,7 @@ class ContactController extends AbstractController
     #[Route('/new', name: 'app_contact_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
@@ -35,6 +40,20 @@ class ContactController extends AbstractController
 
             return $this->redirectToRoute('app_confirmation', [], Response::HTTP_SEE_OTHER);
         }
+
+    //     // Email
+    //     $email = (new Email())
+    //     ->from('hello@example.com')
+    //     ->to('you@example.com')
+    //     //->cc('cc@example.com')
+    //     //->bcc('bcc@example.com')
+    //     //->replyTo('fabien@example.com')
+    //     //->priority(Email::PRIORITY_HIGH)
+    //     ->subject('Time for Symfony Mailer!')
+    //     ->text('Sending emails is fun again!')
+    //     ->html('<p>See Twig integration for better HTML integration!</p>');
+
+    // $mailer->send($email);
 
         return $this->render('contact/new.html.twig', [
             'contact' => $contact,

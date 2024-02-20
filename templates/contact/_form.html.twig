@@ -1,57 +1,58 @@
 
 {% block contact %}
+
 	{{ form_start(form) }}
-    <br>
-	<div class="container contact-form">
+	<br>
 		
-			<h3>Laissez nous un message</h3>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="form-group">
-						<label for="inputNom">Nom</label>
-						{{form_widget(form.Nom, {
-            			'attr': {
-            			'class': 'form-control'
-             			}
-        				})}}
-        
-
-					</div>
-					<div class="form-group">
-						<label for="inputMail">Mail</label>
-						{{form_widget(form.Mail, {
-            			'attr': {
-            			'class': 'form-control'
-             }
-        })}}
-        
-					</div>
-					<div class="form-group">
-						<label for="inputObjet">Objet</label>
-						{{form_widget(form.Objet, {
-            			'attr': {
-            			'class': 'form-control'
-             }
-        })}}
-        
-					</div>
-					<div class="form-group">
-						<label for="inputMessage">Message</label>
-
-						{{form_widget(form.Message, {
+				<div class="form-group">
+					<label for="inputNom">Nom</label>
+					{{form_widget(form.Nom, {
             			'attr': {
             			'class': 'form-control',
-            			'style': 'width: 100%; height: 150px'
+						'style': 'width: 15rem'
+             			}
+        				})}}
+
+
+					<div>
+						<div class="form-group">
+							<label for="inputMail">Mail</label>
+							{{form_widget(form.Mail, {
+            			'attr': {
+            			'class': 'form-control',
+						'style': 'width: 15rem'
+             }
+        			})}}
+
+							<div>
+								<div class="form-group">
+									<label for="inputObjet">Objet</label>
+									{{form_widget(form.Objet, {
+            			'attr': {
+            			'class': 'form-control',
+						'style': 'width: 15rem'
+             }
+        })}}
+			
+
+									<div>
+										<div class="form-group">
+											<label for="inputMessage">Message</label>
+
+											{{form_widget(form.Message, {
+            			'attr': {
+            			'class': 'form-control',
+            			'style': 'width: 15rem'
             }
         })}}
-					</div>                
-				</div>
-			</div>
-            
-        <button class="btn">{{ button_label|default('Envoyez') }}</button> 
-	</div>
-    
+										</div>
+									</div>
+								</div>
+
+								<button class="btn">{{ button_label|default('Envoyer') }}</button>
+							</div>
 
 
-	{{ form_end(form) }}
+	
+							{{ form_end(form) }}
 {% endblock %}

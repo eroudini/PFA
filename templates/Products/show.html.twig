@@ -18,8 +18,11 @@
 						<h4 class="price">Prix: <span>{{product.prix}}</span></h4>
 						<p class="product-description">{{product.description}}</p>
 						<div class="action">
-							<button class="add-to-cart btn btn-default" type="button">Acheter</button>							
-							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+							<button class="add-to-cart btn btn-default" onclick="window.location.href='{{ path('app_checkout') }}'" type="button">Acheter</button>
+
+							<button
+							 class="like btn btn-default" onclick="window.location.href='{{ path('app_product_add_cart', {id: product.id}) }}'"><i class="fa-solid fa-cart-shopping"></i>
+							</button>		
 						</div>
 					</div>
 				</div>

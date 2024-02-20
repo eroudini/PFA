@@ -2,7 +2,7 @@
 {% block body %}
 
 <div class="container bootstrap snippets bootdey p-5">
-        <h4>Voulez-vous modifier votre profil ?</h4>
+        <h5>Voulez-vous modifier votre profil ?</h5>
         <br>
 
                     <div class="tab-pane" id="tab2">
@@ -30,7 +30,7 @@
                                                 </div>
                                             </div>
                                             <br>                           
-                                             <button class="btn">Appliquer</button>
+                                             <a class="btn" href="{{ path('app_user_edit', {id: user.id}) }}">Appliquer</a>
                                             <br>
                                                                                 
                                         </form>
