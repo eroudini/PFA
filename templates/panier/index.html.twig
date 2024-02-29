@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-	<section class="h-100" style="background-color: #eee;">
+	<section class="h-100 pardiv" style="background-color: #eee;">
 		<div class="container h-100 py-5">
 			<div class="row d-flex justify-content-center align-items-center h-100">
 				<div class="col-10">
@@ -90,10 +90,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
               {% endfor %}
               <div class="card">
-                <div class="card-body">
+               
 
-                    <button type="submit" class="btn btn-warning btn-block btn-lg">Valider le panier</button>
-                </div>
+                    <button type="submit" class="btn btn-warning btn-block btn-lg btnvalider">Valider le panier</button>
+               
               </div>
 						{{ form_end(cartForm) }}
 						{# si le panier contient pas de produit #}

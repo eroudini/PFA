@@ -132,9 +132,12 @@ background-size: cover;
 background-position: center left;
 }
 
-.enfcard{
-  margin-bottom: 250px;
+.cardcars{
+margin-top: 50px;
+margin-bottom: 250px;
+
 }
+
 .home-text{
 padding-left: 130px;
 }
@@ -319,6 +322,10 @@ margin: 0.5rem 0 1.4rem;
 #btnveh{
   margin-right: 2.2rem;
   
+}
+
+.pardiv{
+margin-bottom: -80px;
 }
 
 .imagecar{
@@ -609,6 +616,14 @@ text-align: center;
 .enfcard{
 margin-right: 1.3rem;
 margin-bottom: -1rem;
+}
+
+.btnvalider{
+margin-left: 0rem;
+}
+
+.rounded-3{
+margin-right: 3rem;
 }
 .about-text h2 {
 font-size: 1.4rem;
