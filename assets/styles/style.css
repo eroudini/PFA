@@ -132,6 +132,9 @@ background-size: cover;
 background-position: center left;
 }
 
+.enfcard{
+  margin-bottom: 250px;
+}
 .home-text{
 padding-left: 130px;
 }
@@ -597,6 +600,15 @@ flex-direction: column-reverse;
 }
 .about-text {
 text-align: center;
+}
+
+.cardcars{
+  margin-left: 0.1rem;
+}
+
+.enfcard{
+margin-right: 1.3rem;
+margin-bottom: -1rem;
 }
 .about-text h2 {
 font-size: 1.4rem;
