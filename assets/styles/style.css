@@ -636,6 +636,14 @@ display: contents;
 }
 } 
 
+#champs{
+  margin-left: 10rem;
+}
+
+.boxcontact{
+  display: flex;
+  justify-content: center;
+}
 
 /* Navbar bootrap  */
 
