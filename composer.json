@@ -81,6 +81,7 @@
     },
     "scripts": {
         "auto-scripts": {
+            "d:d:c": "symfony-cmd",
             "d:s:u -f": "symfony-cmd",
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
