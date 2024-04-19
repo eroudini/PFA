@@ -23,7 +23,7 @@ class PanierController extends AbstractController
     {
         // création d'un formulaire contenant une collection de formulaires gérants
         // chaque produit et sa quantité
-        // ces formulaires seront mappés à des DTOs qu'il faudra aussi créer
+        // ces formulaires seront mappés à des DTOs
         $cartDTO = new CartDTO();
         $cart = $request->getSession()->get('panier', []);
         foreach ($cart as $product) {
