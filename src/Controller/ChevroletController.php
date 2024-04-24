@@ -26,7 +26,7 @@ class ChevroletController extends AbstractController
 
         // dd($Chevrolet);
         
-        return $this->render('Chevrolet/index.html.twig', [
+        return $this->render('chevrolet/index.html.twig', [
             'Chevrolet' => $Chevrolet,
         ]);
     }

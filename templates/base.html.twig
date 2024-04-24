@@ -72,7 +72,7 @@
           <ul class="navbar-nav ms-auto ">
             <li class="nav-item">
 			{% if app.user %}
-              <a class="nav-link mx-2 text-uppercase" href="{{ path('app_panier')}}"><i class="fa-solid fa-cart-shopping me-1">{{app.session.get('panier') | length}}</i></a>
+              <a class="nav-link mx-2 text-uppercase" href="{{ path('app_panier')}}"><i class="fa-solid fa-cart-shopping me-1">{{app.session.get('panier').getSales() | length}}</i></a>
             </li>
 			{% else %}
 			<a class="nav-link mx-2 text-uppercase" href="{{ path('app_login') }}"><i class="fa-solid fa-cart-shopping me-1">{{app.session.get('panier') | length}}</i></a>

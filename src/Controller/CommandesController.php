@@ -2,16 +2,18 @@
 
 namespace App\Controller;
 
-use App\Repository\UserRepository;
-use App\Repository\ProductsRepository;
+use App\DTO\CartDTO;
+use App\DTO\CartItemDTO;
 use App\Entity\Commandes;
 use App\Form\CommandesType;
+use App\Repository\UserRepository;
+use App\Repository\ProductsRepository;
 use App\Repository\CommandesRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/commandes')]
 class CommandesController extends AbstractController
@@ -31,6 +33,13 @@ class CommandesController extends AbstractController
         $form = $this->createForm(CommandesType::class, $commande);
         $form->handleRequest($request);
 
+        $cartDTO = new CartDTO();
+        $cart = $request->getSession()->get('panier', []);
+        foreach ($cart as $product) {
+            $sale = new CartItemDTO();
+            $sale->setProduct($product);
+            $cartDTO->addProduct($sale);
+        }
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($commande);
             $entityManager->flush();
@@ -39,6 +48,7 @@ class CommandesController extends AbstractController
         }
 
         return $this->render('commandes/new.html.twig', [
+            'cart' => $cart,
             'commande' => $commande,
             'form' => $form,
         ]);

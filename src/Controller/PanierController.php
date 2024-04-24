@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\DTO\CartDTO;
@@ -31,43 +32,41 @@ class PanierController extends AbstractController
             $sale->setProduct($product);
             $cartDTO->addProduct($sale);
         }
-        $form = $this->createForm(CartCollectionType::class, $cartDTO);
+        $form = $this->createForm(CartCollectionType::class, $cart);
         $form->handleRequest($request);
         $cartDTO->initializeCart();
 
-        if ($form->isSubmitted() && $form->isValid())
-        {   
-
-
-            // envoyer vers la page de paiement
-            // dd($cartDTO);
-            // produits soumis du formulaire :
-
-            // dd($products);
+        // dd($cart);
+        if ($form->isSubmitted() && $form->isValid()) {
+            // créer la nouvelle commande (enregistrer dans la bdd)
+            // rediriger vers la page show de la demande qu'on vient de créer
+            // $request->getSession()->set('panier', $cartDTO);
             return $this->redirectToRoute("app_commandes_new");
-
         }
-    
+
         return $this->render('panier/index.html.twig', [
             'cart' => $cart,
             'cartForm' => $form->createView(),
         ]);
-        
-    
     }
 
     #[Route('/{id}/add-cart', name: 'app_product_add_cart', methods: ['GET'])]
     public function addCart($id, Request $request, ProductsRepository $repository): Response
     {
-    $product = $repository->find((int)$id);
-    $cart = [];
-    if ($request->getSession()->get('panier')) {
-        $cart = $request->getSession()->get('panier');
-    }
-    $cart[] = $product;
-    $request->getSession()->set('panier', $cart);
+        $product = $repository->find((int)$id);
+        $cartDTO = new CartDTO();
+        if ($request->getSession()->get('panier')) {
+            $cartDTO = $request->getSession()->get('panier');
+        }
+        $sale = new CartItemDTO();
+        $sale->setProduct($product);
+        $cartDTO->addProduct($sale);
+        $cartDTO->initializeCart();
+        $request->getSession()->set('panier', $cartDTO);
 
-    return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+        // dd($request->getSession()->get('panier'));
+
+        return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
     }
 
     // function remove product

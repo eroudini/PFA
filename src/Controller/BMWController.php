@@ -26,7 +26,7 @@ class BMWController extends AbstractController
 
        // dd($mercedes);
        
-       return $this->render('BMW/index.html.twig', [
+       return $this->render('bmw/index.html.twig', [
            'BMW' => $BMW,
        ]);
    }

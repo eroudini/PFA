@@ -1,183 +1,171 @@
-
-
 {{ form_start(form) }}
-    <div class="container">
-  <main>
-    <div class="py-5 text-center">
-      <h2>Validation de commande</h2>
-    </div>
+<div class="container">
+	<main>
+		<div class="py-5 text-center">
+			<h2>Validation de commande</h2>
+		</div>
 
-    <div class="row g-5">
-      <div class="col-md-5 col-lg-4 order-md-last">
-      
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-primary">Votre panier</span>
-          <span class="badge bg-primary rounded-pill">3</span>
-        </h4>
-        <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Product name</h6>
-              <small class="text-muted">Brief description</small>
-            </div>
-            <span class="text-muted">$12</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Second product</h6>
-              <small class="text-muted">Brief description</small>
-            </div>
-            <span class="text-muted">$8</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Third item</h6>
-              <small class="text-muted">Brief description</small>
-            </div>
-            <span class="text-muted">$5</span>
-          </li>
-          
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Total (EUR)</span>
-            <strong>$20</strong>
-          </li>
-        </ul>
-
-      </div>
-      <div class="col-md-7 col-lg-8">
-        <h4 class="mb-3">Coordonnées</h4>
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <label for="firstName" class="form-label">Nom</label>
-              {{ form_widget(form.Nom,{
+		<div class="row g-5">
+			<div class="col-md-5 col-lg-4 order-md-last">
+				<h4 class="d-flex justify-content-between align-items-center mb-3">
+					<span class="text-primary">Votre panier</span>
+					<span class="badge bg-primary rounded-pill">{{app.session.get('panier') | length}}</span>
+				</h4>
+				<ul class="list-group mb-3">
+					{% for product in cart.getSales() %}
+						<li class="list-group-item d-flex justify-content-between lh-sm">
+							<div>
+								<h6 class="my-0">{{product.getProduct().nomProduit}}</h6>
+								<small class="text-muted">Brief description</small>
+							</div>
+							<span class="text-muted">{{product.getProduct().prix}}
+								€</span>
+						</li>
+					{% endfor %}
+					{% set total = 0 %}
+					{% for product in cart.getSales() %}
+						{% set total = total + (product.getProduct().prix * product.getQuantitySale()) %}
+					{% endfor %}
+					<li class="list-group-item d-flex justify-content-between">
+						<span>Total (EUR)</span>
+						<strong>{{total}}</strong>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-7 col-lg-8">
+				<h4 class="mb-3">Coordonnées</h4>
+				<div class="row g-3">
+					<div class="col-sm-6">
+						<label for="firstName" class="form-label">Nom</label>
+						{{ form_widget(form.Nom,{
                 'attr':{
                         'class' : 'form-control'
                     }
               })}}
-              <div class="invalid-feedback">
-                Veuillez entrez votre nom.
-              </div>
-            </div>
+						<div class="invalid-feedback">
+							Veuillez entrez votre nom.
+						</div>
+					</div>
 
-            <div class="col-sm-6">
-              <label for="lastName" class="form-label">Prénom</label>
-              {{ form_widget(form.Prenom,{
+					<div class="col-sm-6">
+						<label for="lastName" class="form-label">Prénom</label>
+						{{ form_widget(form.Prenom,{
                 'attr':{
                         'class' : 'form-control'
                     }
               })}}
-              <div class="invalid-feedback">
-                Veuillez entrez votre prénom.
-              </div>
-            </div>
+						<div class="invalid-feedback">
+							Veuillez entrez votre prénom.
+						</div>
+					</div>
 
-            <div class="col-12">
-              <label for="email" class="form-label">Email</label>
-              {{ form_widget(form.Email,{
+					<div class="col-12">
+						<label for="email" class="form-label">Email</label>
+						{{ form_widget(form.Email,{
                 'attr':{
                     'class' : 'form-control',
                     'placeholder': 'email@example.com'
                     }
               })}}
-              <div class="invalid-feedback">
-                Veuillez entrez une adresse mail valide.
-              </div>
-            </div>
+						<div class="invalid-feedback">
+							Veuillez entrez une adresse mail valide.
+						</div>
+					</div>
 
-            <div class="col-12">
-              <label for="address" class="form-label">Adresse</label>
-            {{ form_widget(form.Adresse,{
+					<div class="col-12">
+						<label for="address" class="form-label">Adresse</label>
+						{{ form_widget(form.Adresse,{
                 'attr':{
                     'class' : 'form-control',
                     'placeholder': '7 rue des rastels'
                     }
               })}}
-              <div class="invalid-feedback">
-                Veuillez entrez une adresse valide.
-              </div>
-            </div>
+						<div class="invalid-feedback">
+							Veuillez entrez une adresse valide.
+						</div>
+					</div>
 
-            <div class="col-md-3">
-              <label for="zip" class="form-label">Code postal</label>
-            {{ form_widget(form.postal,{
+					<div class="col-md-3">
+						<label for="zip" class="form-label">Code postal</label>
+						{{ form_widget(form.postal,{
                 'attr':{
                     'class' : 'form-control',
                     'placeholder': '69006'
                     }
               })}}
-              <div class="invalid-feedback">
-                Veuillez entrez un code postal.
-              </div>
-            </div>
-          </div>
+						<div class="invalid-feedback">
+							Veuillez entrez un code postal.
+						</div>
+					</div>
+				</div>
 
-          <hr class="my-4">
+				<hr class="my-4">
 
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="same-address">
-            <label class="form-check-label" for="same-address">L'adresse de livraison est la même que mon adresse de facturation</label>
-          </div>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" id="same-address">
+					<label class="form-check-label" for="same-address">L'adresse de livraison est la même que mon adresse de facturation</label>
+				</div>
 
-          <hr class="my-4">
+				<hr class="my-4">
 
-          <h4 class="mb-3">paiement</h4>
+				<h4 class="mb-3">paiement</h4>
 
-          <div class="my-3">
-            <div class="form-check">
-              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-              <label class="form-check-label" for="credit">Carte</label>
-            </div>
-            <div class="form-check">
-              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-              <label class="form-check-label" for="debit">Paypal</label>
-            </div>
-            <div class="form-check">
-              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-              <label class="form-check-label" for="paypal">Stripe</label>
-            </div>
-          </div>
+				<div class="my-3">
+					<div class="form-check">
+						<input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+						<label class="form-check-label" for="credit">Carte</label>
+					</div>
+					<div class="form-check">
+						<input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+						<label class="form-check-label" for="debit">Paypal</label>
+					</div>
+					<div class="form-check">
+						<input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+						<label class="form-check-label" for="paypal">Stripe</label>
+					</div>
+				</div>
 
-          <div class="row gy-3">
-            <div class="col-md-6">
-              <label for="cc-name" class="form-label">Nom sur la carte</label>
-              <input type="text" class="form-control" id="cc-name" placeholder="" required>
-              <small class="text-muted">Nom complet</small>
-              <div class="invalid-feedback">
-                Le nom sur la carte est requis.              
-              </div>
-            </div>
+				<div class="row gy-3">
+					<div class="col-md-6">
+						<label for="cc-name" class="form-label">Nom sur la carte</label>
+						<input type="text" class="form-control" id="cc-name" placeholder="" required>
+						<small class="text-muted">Nom complet</small>
+						<div class="invalid-feedback">
+							Le nom sur la carte est requis.
+						</div>
+					</div>
 
-            <div class="col-md-6">
-              <label for="cc-number" class="form-label">Numéro de carte</label>
-              <input type="text" class="form-control" id="cc-number" placeholder="" required>
-              <div class="invalid-feedback">
-                Le numéro de carte de crédit est requis.
-              </div>
-            </div>
+					<div class="col-md-6">
+						<label for="cc-number" class="form-label">Numéro de carte</label>
+						<input type="text" class="form-control" id="cc-number" placeholder="" required>
+						<div class="invalid-feedback">
+							Le numéro de carte de crédit est requis.
+						</div>
+					</div>
 
-            <div class="col-md-3">
-              <label for="cc-expiration" class="form-label">Expiration</label>
-              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-              <div class="invalid-feedback">
-                Date d'expiration requise.
-              </div>
-            </div>
+					<div class="col-md-3">
+						<label for="cc-expiration" class="form-label">Expiration</label>
+						<input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+						<div class="invalid-feedback">
+							Date d'expiration requise.
+						</div>
+					</div>
 
-            <div class="col-md-3">
-              <label for="cc-cvv" class="form-label">CVV</label>
-              <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-              <div class="invalid-feedback">
-                Code de sécurité requis.
-              </div>
-            </div>
-          </div>
+					<div class="col-md-3">
+						<label for="cc-cvv" class="form-label">CVV</label>
+						<input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+						<div class="invalid-feedback">
+							Code de sécurité requis.
+						</div>
+					</div>
+				</div>
 
-          <hr class="my-4">
-        <button class="btn">{{ button_label|default('Valider la commande') }}</button> 
-        <hr>
-        <br>
-      </div>
-    </div>
-  </main>
-  </div>
+				<hr class="my-4">
+				<button class="btn">{{ button_label|default('Valider la commande') }}</button>
+				<hr>
+				<br>
+			</div>
+		</div>
+	</main>
+</div>
 {{ form_end(form) }}
