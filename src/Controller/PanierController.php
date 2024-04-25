@@ -38,8 +38,6 @@ class PanierController extends AbstractController
 
         // dd($cart);
         if ($form->isSubmitted() && $form->isValid()) {
-            // créer la nouvelle commande (enregistrer dans la bdd)
-            // rediriger vers la page show de la demande qu'on vient de créer
             // $request->getSession()->set('panier', $cartDTO);
             return $this->redirectToRoute("app_commandes_new");
         }
@@ -54,6 +52,7 @@ class PanierController extends AbstractController
     public function addCart($id, Request $request, ProductsRepository $repository): Response
     {
         $product = $repository->find((int)$id);
+    
         $cartDTO = new CartDTO();
         if ($request->getSession()->get('panier')) {
             $cartDTO = $request->getSession()->get('panier');
