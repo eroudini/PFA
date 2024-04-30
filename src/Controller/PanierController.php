@@ -76,10 +76,11 @@ class PanierController extends AbstractController
         $product = $ProductsRepository->find((int)$id);
         if ($this->isCsrfTokenValid('delete' . $product->getId(), $request->query->get('csrf_token'))) {
             $panier = $request->getSession()->get('panier');
-            $result = array_filter($panier, function ($item) use ($product) {
-                return $item->getId() !== $product->getId();
-            });
-            $request->getSession()->set('panier', $result);
+            $filtered = $panier->getSales()->filter(function($sale) use ($product){
+                return $sale->getProduct()->getId() === $product->getId();
+            })->first();
+            $panier->removeProduct($filtered);
+            $request->getSession()->set('panier', $panier);
         }
 
         return $this->redirectToRoute("app_panier");

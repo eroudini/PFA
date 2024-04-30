@@ -5,9 +5,7 @@ import './styles/sb-admin-2.min.css';
 
 require('bootstrap/dist/css/bootstrap.min.css');
 // import './main.js'
-import './bootstrap.js';
 import './styles/style.css'
-import './panier.js';
 import 'atropos/css';
 
 

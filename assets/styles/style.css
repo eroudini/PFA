@@ -418,8 +418,8 @@ text-decoration: underline;
   /* fin box car */
 
 .footer{
-background: var(--text-color);
-color: #f6f6f6;
+background: rgba(5, 5, 4, 0.801);
+color: #584343;
 border-top: 2px solid var(--main-color);
 height: 15rem;
 margin-top: 5rem;
@@ -476,7 +476,7 @@ color: var(--main-color);
 
 .footer-box a,
 .footer-box p{
-color: #818181;
+color: #ffffff;
 margin-bottom: 10px;
 
 }
@@ -689,4 +689,3 @@ a {
   }
 
 
-/*PRODUITS SOUS FICHE PRODUIT*/

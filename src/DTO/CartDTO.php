@@ -40,13 +40,14 @@ final class CartDTO
         if (!$this->sales->contains($sale)) {
             $this->sales->add($sale);
         }
-
+        $this->initializeCart();
         return $this;
     }
 
     public function removeProduct(CartItemDTO $sale): static
     {
         $this->sales->removeElement($sale);
+        $this->initializeCart();
         return $this;
     } 
 }
