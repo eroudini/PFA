@@ -83,20 +83,18 @@ class UserController extends AbstractController
         }
 
         $form = $this->createForm(UserType::class, $user);
-
-        
-        // $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
-
-         if ($form->isSubmitted() && $form->isValid()) {
-        //     $entityManager->flush();
-
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            //$entityManager->flush();
+            
             $user = $form->getData();
+            //dd($user);
             $entityManager->persist($user);
             $entityManager->flush();
-
+            
             $this->addFlash(
-                'sucess',
+                'success',
                 'Les informations de votre compte on était modifier.'
             );
             return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
