@@ -10,8 +10,8 @@ services:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
-            - '../src/Entity/'
             - '../src/Kernel.php'
+            - '../src/Entity/'
 
     # Explicit configuration for ProductsRepository
     App\Repository\ProductsRepository:
