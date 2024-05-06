@@ -38,6 +38,17 @@ class Commandes
         return $this->Nom;
     }
 
+    public function getUserId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function setUserId(): ?int
+    {
+        return $this->id;
+    }
+
+
     public function setNom(string $Nom): static
     {
         $this->Nom = $Nom;
