@@ -87,7 +87,8 @@ class UserController extends AbstractController
         
         if ($form->isSubmitted() && $form->isValid()) {
             //$entityManager->flush();
-            
+            $id = $user->getId();
+
             $user = $form->getData();
             //dd($user);
             $entityManager->persist($user);
@@ -97,7 +98,7 @@ class UserController extends AbstractController
                 'success',
                 'Les informations de votre compte on était modifier.'
             );
-            return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_user_show', ['id' => $id], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('user/edit.html.twig', [

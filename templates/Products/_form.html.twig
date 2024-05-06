@@ -1,6 +1,48 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
 
-    
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form) }}
+
+	 {{ form_widget(form) }}
+        <button class="btn">{{ button_label|default('Ajouter') }}</button>
+
+
+
+        
+    {# <label for="inputNomProduit">NomProduit</label>
+    {{ form_widget(form) }}
+      {{form_widget(form.nom_produit, {
+        'attr': {
+        'class': 'form-control'
+        }
+    })}}
+
+    <label for="inputImages">Images</label>
+    {{ form_widget(form) }}
+      {{form_widget(form.images, {
+        'attr': {
+        'class': 'form-control'
+        }
+    })}}
+
+     <label for="inputPrix">Prix</label>
+    {{ form_widget(form) }}
+      {{form_widget(form.prix, {
+        'attr': {
+        'class': 'form-control'
+        }
+    })}}
+
+     <label for="inputDescription">Description</label>
+    {{ form_widget(form) }}
+      {{form_widget(form.description, {
+        'attr': {
+        'class': 'form-control'
+        }
+    })}} #}
+
+   
+
 {{ form_end(form) }}
+
+                                                                   
+                                        
+										

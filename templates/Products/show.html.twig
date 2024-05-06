@@ -18,8 +18,6 @@
                     <h4 class="price">Prix: <span>{{ product.prix }}</span></h4>
                     <p class="product-description">{{ product.description }}</p>
                     <div class="action">             
-                        {# <button class="nav-link mx-2 text-uppercase" href="{{ path('app_commandes_new') }}" type="button">Acheter</button> #}
-
                         <a class="nav-link mx-2 text-uppercase btn" href="{{ path('app_commandes_new') }}">Acheter</a>
                         
                     </div>
@@ -28,10 +26,5 @@
         </div>
     </div>
 </div>
-
-
-    {# PRODUITS ADDITIONNELS
-	
-	app_commandes_new #}
 
 {% endblock %}

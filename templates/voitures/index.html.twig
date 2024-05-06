@@ -11,12 +11,12 @@
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Prix</th>
-                <th>Descriptions</th>
+                {# <th>Descriptions</th>
                 <th>Kilometrage</th>
                 <th>Circulation</th>
                 <th>Carburant</th>
-                <th>Images</th>
-                <th>actions</th>
+                <th>Images</th>#}
+                <th>actions</th> 
             </tr>
         </thead>
         <tbody>
@@ -25,14 +25,14 @@
                 <td>{{ voiture.id }}</td>
                 <td>{{ voiture.nom }}</td>
                 <td>{{ voiture.prix }}</td>
-                <td>{{ voiture.descriptions }}</td>
+                {# <td>{{ voiture.descriptions }}</td>
                 <td>{{ voiture.kilometrage }}</td>
                 <td>{{ voiture.circulation }}</td>
                 <td>{{ voiture.carburant }}</td>
-                <td>{{ voiture.images }}</td>
+                <td>{{ voiture.images }}</td> #}
                 <td>
-                    <a href="{{ path('app_voitures_show', {'id': voiture.id}) }}">show</a>
-                    <a href="{{ path('app_voitures_edit', {'id': voiture.id}) }}">edit</a>
+                    <a href="{{ path('app_voitures_edit', {'id': voiture.id}) }}" class="btn">Modifier</a> 
+                    <a href="{{ path('app_voitures_show', {'id': voiture.id}) }}" class="btn">Voir le véhicule</a> 
                 </td>
             </tr>
         {% else %}
@@ -43,5 +43,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_voitures_new') }}">Create new</a>
+    <a href="{{ path('app_voitures_new') }}">Ajouter un véhicule</a>
 {% endblock %}
