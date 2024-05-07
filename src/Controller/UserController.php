@@ -25,10 +25,6 @@ class UserController extends AbstractController
         $email = (new Email())
             ->from('eroudiniabdillah2@gmail.com')
             ->to('eroudiniabdillah2@gmail.com')
-            //->cc('cc@example.com')
-            //->bcc('bcc@example.com')
-            //->replyTo('fabien@example.com')
-            //->priority(Email::PRIORITY_HIGH)
             ->subject('Time for Symfony Mailer!')
             ->text('Sending emails is fun again!')
             ->html('<p>See Twig integration for better HTML integration!</p>');
@@ -116,6 +112,6 @@ class UserController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_comptesupprimer', [], Response::HTTP_SEE_OTHER);
     }
 }
