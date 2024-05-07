@@ -1,8 +1,12 @@
 $theme-colors: (
-  "cvColor": #001f3f,
-  "primary": rgb(6, 235, 124),
-  "myGray": #DBD3CD,
-
+  $text: #000000;
+  $text-header: 
+  $background: #ffffff;
+  $primary: #D90429;
+  $secondary: #d2ccbe;
+  $accent: #F6C23E;
+  
+  
 );
 
 // customize some Bootstrap variables

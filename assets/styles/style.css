@@ -11,7 +11,11 @@ scroll-behavior: smooth;
 list-style: none;
 box-sizing: border-box;
 text-decoration: none;
+
 }
+
+
+
 
 body{
 	background: #ffffff00;
@@ -21,8 +25,11 @@ body{
 
 :root{
 --main-color:#d90429;
---text-color:#020102;
+--text-color:#000000;
 --bg-color:#fff;
+--secondary: #d2ccbe;
+--accent: #F6C23E;
+
 }
 /* custom scroll Bar*/
 html::-webkit-scrollbar{
@@ -180,6 +187,8 @@ background: #fd052f;
   box-shadow: 0px 0px 6px #00000029;
   margin-left: 5.5rem;
   }
+
+
 
 .btn2{
   padding: 10px 22px;
@@ -486,6 +495,9 @@ margin-bottom: 10px;
 color: var(--main-color);
 }
 
+.nav-link{
+  color: ;
+}
 
 .copyright{
 padding: 10px;
@@ -581,6 +593,7 @@ transition: 0.6s;
 .navbar a {
 display: block;
 padding: 15px;
+
 }
 .navbar a:hover,
 .navbar .active {

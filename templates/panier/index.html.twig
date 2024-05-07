@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
             // Recup la valeur de quantité saisie et la convertit en entier
             let quantity = parseInt(this.value);
             // Recup l'élément qui affiche le prix unitaire du produit le plus proche
-            let priceElement = this.closest('.card-body').querySelector('.mb-0');
+            let priceElement = this.closest('.PriceElementTotal').querySelector('.priceElement');
             // Recup le texte du prix unitaire
             let priceText = priceElement.textContent;
-            // Extrait le prix unitaire du texte et le convertit en nombre à virgule flottante
+            // Extrait le prix unitaire(varchar BDD) du texte et le convertit en nombre à virgule flottante et enleve le symbole € et l'espace
             let price = parseFloat(priceText.substring(0, priceText.length - 2)); 
             // Recup l'élément qui affiche le prix total du produit
             let totalPriceElement = this.closest('.card-body').querySelector('#total-price');
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						{{ form_start(cartForm)}}
               {% for saleForm in cartForm.sales %}
                 <div class="card rounded-3 mb-4">
-                  <div class="card-body p-4">
+                  <div class="card-body p-4 PriceElementTotal">
                     <div class="row d-flex justify-content-between align-items-center">
                       <div class="col-md-2 col-lg-2 col-xl-2">
                         <img src="{{ saleForm.vars['data'].getProduct().images}}" class="img-fluid rounded-3" alt="Cotton T-shirt">
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         }) }}                       
                       </div>
                       <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <p class="mb-0">{{saleForm.vars['data'].getProduct().prix}} €</p>
+                        <p class="mb-0 priceElement">{{saleForm.vars['data'].getProduct().prix}} €</p>
                          <p>Total:<span id="total-price"> 0.00 €</span></p>
                       </div>
                       <div class="col-md-1 col-lg-1 col-xl-1 text-end">

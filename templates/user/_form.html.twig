@@ -29,27 +29,18 @@
 
 
 {% block body %}
-    {# {{ form_widget(form) }}  #}
+   
 
  <div class="container py-3 h-100"> 
 			<div class="row d-flex justify-content-center align-items-center h-100">
 				<div class="col col-xl-10">
 					<div class="card" style="border-radius: 3rem;">
 						<div class="row g-0">
-							{# <div class="col-md-6 col-lg-5 d-none d-md-block">
-								<img src="img/login.jpg" alt="signup image" class="img-fluid" style="border-radius: 1rem 0 0 1rem;"/>
-							</div> #}
+						
 							<div class="col-md-6 col-lg-7 d-flex align-items-center">
 								<div class="card-body p-4 p-lg-5 text-black">
 
-									<form method="post">
-										
-
-										{# Si y a une erreur #}
-										
-										{# Si l'utilisateur est connecté #}
-										
-
+									<form method="post">																													
 										<div class="d-flex align-items-center mb-3 pb-1">
 											<span class="fa-solid fa-car">
 												HorizonCar</span>
@@ -58,13 +49,7 @@
 										<h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 0px;">Nous sommes heureux de vous accueillir 🎉</h5>
 
 										<h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
-                                       
-                                         
-                                      
-
-
-                                   
-
+                                                     
                                         {{form_start(form)}}
 
 								
@@ -103,12 +88,5 @@
 				</div>
 			</div>
 		</div>
-
-
-
-    {# <button class="btn">{{ button_label|default('Save') }}</button> #}
-
-    {# {{ form_end(form) }}  #}
-
 {% endblock %}
 </html>

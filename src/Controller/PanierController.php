@@ -22,9 +22,8 @@ class PanierController extends AbstractController
     // #[Route('/', name: 'index')]
     public function index(SessionInterface $session, ProductsRepository $ProductsRepository, Request $request)
     {
-        // création d'un formulaire contenant une collection de formulaires gérants
-        // chaque produit et sa quantité
-        // ces formulaires seront mappés à des DTOs
+        // création d'un formulaire contenant une collection de formulaires
+        // qui gere chaque produit et sa quantité
         $cartDTO = new CartDTO();
         $cart = $request->getSession()->get('panier', []);
         foreach ($cart as $product) {
@@ -68,8 +67,6 @@ class PanierController extends AbstractController
         return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
     }
 
-    // function remove product
-
     #[Route('/remove/{id}', name: 'remove')]
     public function remove(ProductsRepository $ProductsRepository, Request $request, $id): Response
     {
@@ -85,7 +82,4 @@ class PanierController extends AbstractController
 
         return $this->redirectToRoute("app_panier");
     }
-
-    // Pour les fiches produits des accessoires
-
 }
