@@ -76,6 +76,7 @@
 							</ul>
 							<ul class="navbar-nav ms-auto ">
 								<li class="nav-item">
+																						
 									{% if app.user %}
 										<a class="nav-link mx-2 text-uppercase" 
 											{% if app.session.get('panier') is null %} style="pointer-events: none" 
@@ -153,24 +154,22 @@
 						</div>
 
 						<div class="footer-box">
-							<h2>Page</h2>
+							<h3>Page</h3>
 							<a href="{{ path('home') }}">Accueil</a>
 							<a href="{{ path('vehicules') }}">Nos voitures</a>
 							<a class="text-white-50" href="#">Ma commande</a>
 						</div>
 
 						<div class="footer-box">
-							<h2>Legal</h2>
-							<a href="#">Privacy</a>
+							<h3>Legal</h3>
+							<a href="https://drive.google.com/file/d/1O1NiN8firA9PYUXtDYMhz-zWvQb5LUqw/view?usp=sharing">CGU et Politique de Confidentialité</a>
 						</div>
 
-				{% if is_granted('ROLE_ADMIN') %}
 						<div class="footer-box">
 							<a href="{{ path('app_admin') }}">Panneau de configuration</a>
-							
 						</div>
 					</div>
-				{% endif %}
+
 
 				</section>
 

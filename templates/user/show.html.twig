@@ -63,7 +63,10 @@
                 </tbody>
             </table>
             </div>
+            <hr>
             <a href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
+            <hr>
+             {{ include('user/_delete_form.html.twig') }} 
         </div>
     </div>
 </div>

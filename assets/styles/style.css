@@ -434,8 +434,9 @@ height: 15rem;
 margin-top: 5rem;
 }
 
-.footer h2{
-  color: white;
+.footer h3{
+  color: rgb(255, 255, 255);
+  
 }
 
 .footer-container{
@@ -499,9 +500,6 @@ margin-bottom: 10px;
 color: var(--main-color);
 }
 
-.nav-link{
-  color: ;
-}
 
 .copyright{
 padding: 10px;
