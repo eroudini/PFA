@@ -116,6 +116,6 @@ class UserController extends AbstractController
         $security->logout(false);
         // dd($user);
 
-        return $this->redirectToRoute('app_comptesupprimer', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
     }
 }

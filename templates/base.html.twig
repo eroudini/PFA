@@ -164,11 +164,12 @@
 							<h3>Legal</h3>
 							<a href="https://drive.google.com/file/d/1O1NiN8firA9PYUXtDYMhz-zWvQb5LUqw/view?usp=sharing">CGU et Politique de Confidentialité</a>
 						</div>
-
+					{% if is_granted('ROLE_ADMIN') %}
 						<div class="footer-box">
 							<a href="{{ path('app_admin') }}">Panneau de configuration</a>
 						</div>
 					</div>
+					{% endif %}
 
 
 				</section>
